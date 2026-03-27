@@ -209,30 +209,68 @@
     }
 
     h1 {
-      margin: 0 0 14px;
+      margin: 0;
+      position: relative;
+      isolation: isolate;
       font-family: "Optimistic", "Times New Roman", serif;
       font-size: clamp(2.7rem, 5.55vw, 4.7rem);
-      line-height: 0.94;
+      line-height: 1;
       letter-spacing: -0.04em;
+      padding-bottom: 0.1em;
     }
 
     .hero-title-main {
-      display: grid;
-      gap: 0.02em;
+      display: inline-grid;
+      gap: 0;
+      position: relative;
+      z-index: 2;
+      width: fit-content;
+      max-width: 100%;
       white-space: normal;
     }
 
     .hero-title-line {
-      display: block;
+      display: inline-block;
+      position: relative;
+      isolation: isolate;
+      z-index: 2;
+      padding: 0 0.04em 0.1em 0.02em;
+      color: #145b63;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-title-line::before {
+      content: "";
+      position: absolute;
+      top: 0.04em;
+      right: -0.04em;
+      bottom: 0.01em;
+      left: -0.04em;
+      z-index: -1;
+      border-radius: 0.22em;
+      background: linear-gradient(180deg, rgba(250, 247, 241, 0.7), rgba(248, 243, 236, 0.33));
+      box-shadow: 0 8px 18px rgba(24, 37, 48, 0.0);
+    }
+
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .hero-title-line {
+        background: none;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        color: #145b63;
+        -webkit-text-fill-color: #145b63;
+      }
     }
 
     .hero-title-sub {
       display: block;
+      position: relative;
+      z-index: 1;
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: clamp(1.1rem, 2vw, 1.52rem);
       line-height: 1.32;
       letter-spacing: 0;
-      margin-top: 16px;
+      margin: 20px 0 0;
       font-weight: 700;
       color: var(--muted);
     }
@@ -281,6 +319,18 @@
       background: rgba(255, 255, 255, 0.82);
       border-color: rgba(22, 36, 45, 0.1);
       color: var(--ink);
+    }
+
+    .button.github-button {
+      background: linear-gradient(135deg, rgba(44, 56, 64, 0.96), rgba(25, 33, 39, 0.94));
+      border-color: rgba(22, 36, 45, 0.32);
+      color: rgba(255, 255, 255, 0.98);
+    }
+
+    .button.taxonomy-button {
+      background: linear-gradient(135deg, rgba(15, 111, 116, 0.14), rgba(112, 175, 166, 0.12));
+      border-color: rgba(15, 111, 116, 0.2);
+      color: #145b63;
     }
 
     .button.ghost {
@@ -385,7 +435,7 @@
     .hero-panel-title {
       margin: 14px 0 0;
       font-family: "Optimistic", "Times New Roman", serif;
-      font-size: clamp(1.55rem, 2.45vw, 2.3rem);
+      font-size: clamp(1.66rem, 2.62vw, 2.42rem);
       line-height: 1.02;
       letter-spacing: -0.03em;
       color: var(--ink);
@@ -393,7 +443,8 @@
 
     .hero-insight-grid {
       display: grid;
-      gap: 14px;
+      gap: 16px;
+      align-items: stretch;
     }
 
     .hero-insight-card {
@@ -421,6 +472,11 @@
 
     .hero-showcase {
       margin-top: 2px;
+      gap: 6px;
+    }
+
+    .hero-showcase .figure-caption {
+      margin: 2px 4px 0;
     }
 
     .figure-frame {
@@ -599,6 +655,79 @@
       background: linear-gradient(90deg, var(--teal), var(--accent));
     }
 
+    .hero-insight-grid .concept-card {
+      min-height: 100%;
+      padding: 22px 18px 20px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.76), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 246, 240, 0.92));
+      box-shadow: 0 16px 34px rgba(24, 37, 48, 0.08);
+    }
+
+    .hero-insight-grid .concept-card::before {
+      height: 5px;
+    }
+
+    .hero-insight-grid .concept-card:nth-child(1) {
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.78), transparent 42%),
+        linear-gradient(180deg, rgba(15, 111, 116, 0.08), rgba(255, 255, 255, 0.96) 52%);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(2) {
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.78), transparent 42%),
+        linear-gradient(180deg, rgba(213, 106, 79, 0.09), rgba(255, 255, 255, 0.96) 52%);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(3) {
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.78), transparent 42%),
+        linear-gradient(180deg, rgba(203, 165, 107, 0.11), rgba(255, 255, 255, 0.96) 52%);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(1)::before {
+      background: linear-gradient(90deg, var(--teal), #49a7a2);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--accent), #e09361);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(3)::before {
+      background: linear-gradient(90deg, var(--gold), #e0b86f);
+    }
+
+    .hero-insight-grid .card-label {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(1) .card-label {
+      background: rgba(15, 111, 116, 0.12);
+      color: var(--teal);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(2) .card-label {
+      background: rgba(213, 106, 79, 0.12);
+      color: var(--accent-strong);
+    }
+
+    .hero-insight-grid .concept-card:nth-child(3) .card-label {
+      background: rgba(203, 165, 107, 0.16);
+      color: #8a6535;
+    }
+
+    .hero-insight-grid .card-title {
+      font-size: 1.16rem;
+      line-height: 1.18;
+    }
+
+    .hero-insight-grid .card-copy {
+      font-size: 0.94rem;
+      line-height: 1.68;
+    }
+
     .card-label {
       display: inline-flex;
       align-items: center;
@@ -775,7 +904,7 @@
 
     .view-title {
       margin: 6px 0 8px;
-      font-size: 1.18rem;
+      font-size: 1.26rem;
       line-height: 1.15;
     }
 
@@ -938,6 +1067,61 @@
       font-size: 1rem;
     }
 
+    .mini-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mini-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+
+    .mini-card.is-visual {
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.74), transparent 40%),
+        linear-gradient(180deg, rgba(15, 111, 116, 0.09), rgba(255, 255, 255, 0.95) 54%);
+    }
+
+    .mini-card.is-language {
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.74), transparent 40%),
+        linear-gradient(180deg, rgba(213, 106, 79, 0.1), rgba(255, 255, 255, 0.95) 54%);
+    }
+
+    .mini-card.is-visual::before {
+      background: linear-gradient(90deg, var(--teal), #49a7a2);
+    }
+
+    .mini-card.is-language::before {
+      background: linear-gradient(90deg, var(--accent), #e09361);
+    }
+
+    .mini-card .card-copy {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .mini-card.is-visual .card-copy {
+      color: var(--teal);
+    }
+
+    .mini-card.is-language .card-copy {
+      color: var(--accent-strong);
+    }
+
+    .mini-grid-note {
+      margin: -2px 0 4px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
     .data-table-wrap {
       margin-top: 18px;
       border-radius: 22px;
@@ -980,6 +1164,75 @@
 
     tbody tr:hover {
       background: rgba(15, 111, 116, 0.04);
+    }
+
+    .trend-table tbody td {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .trend-table tbody td:nth-child(2),
+    .trend-table tbody td:nth-child(3) {
+      color: #215e67;
+      font-weight: 700;
+    }
+
+    .trend-table tbody td:nth-child(4),
+    .trend-table tbody td:nth-child(5) {
+      color: #b15342;
+      font-weight: 700;
+    }
+
+    .trend-table tbody td:nth-child(6) {
+      color: var(--teal);
+      font-weight: 800;
+      background: rgba(15, 111, 116, 0.05);
+    }
+
+    .trend-table tbody td:nth-child(7) {
+      color: var(--accent-strong);
+      font-weight: 800;
+      background: rgba(213, 106, 79, 0.06);
+    }
+
+    .trend-table tbody td:nth-child(8) {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .trend-table .share-value {
+      font-weight: 900;
+    }
+
+    .trend-table .share-tier-1 {
+      color: #c5a48e;
+    }
+
+    .trend-table .share-tier-2 {
+      color: #c08870;
+    }
+
+    .trend-table .share-tier-3 {
+      color: #bb6e57;
+    }
+
+    .trend-table .share-tier-4 {
+      color: #b55d49;
+    }
+
+    .trend-table .share-tier-5 {
+      color: #ac4f3f;
+    }
+
+    .trend-table .share-tier-6 {
+      color: #a13f35;
+    }
+
+    .trend-table .share-tier-7 {
+      color: #912e2d;
+    }
+
+    .trend-table tbody tr:last-child td {
+      background-image: linear-gradient(90deg, rgba(15, 111, 116, 0.03), rgba(213, 106, 79, 0.04));
     }
 
     .note {
@@ -1127,7 +1380,7 @@
 
     .library-shell {
       overflow: hidden;
-      padding: 26px;
+      padding: 28px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(249, 244, 238, 0.92)),
         rgba(255, 255, 255, 0.9);
@@ -1137,58 +1390,155 @@
       margin-bottom: 18px;
     }
 
+    .library-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+      gap: 20px;
+    }
+
+    .library-header-copy {
+      display: grid;
+      gap: 8px;
+    }
+
     .paper-cluster-header h3 {
       margin: 0 0 8px;
     }
 
     .library-overview {
       display: grid;
-      gap: 18px;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 14px;
       margin-bottom: 18px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background:
+        linear-gradient(90deg, rgba(15, 111, 116, 0.08), rgba(255, 255, 255, 0.96));
+      border: 1px solid rgba(22, 36, 45, 0.08);
+      box-shadow: none;
+    }
+
+    .library-overview-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(15, 111, 116, 0.12);
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .library-overview p {
-      max-width: 74ch;
+      max-width: none;
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 600;
     }
 
     .library-controls {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
       margin-bottom: 18px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
 
     .library-group {
+      position: relative;
+      overflow: hidden;
       padding: 18px;
       border-radius: 22px;
       border: 1px solid rgba(22, 36, 45, 0.08);
+      background: rgba(255, 255, 255, 0.92);
       box-shadow: var(--shadow-soft);
     }
 
+    .library-group::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+
     .library-group.overview {
-      background: linear-gradient(180deg, rgba(109, 91, 70, 0.08), rgba(255, 255, 255, 0.92));
-      border-color: rgba(109, 91, 70, 0.16);
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+      gap: 18px;
+      align-items: start;
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.78), transparent 42%),
+        linear-gradient(180deg, rgba(109, 91, 70, 0.06), rgba(255, 255, 255, 0.94));
+      border-color: rgba(109, 91, 70, 0.14);
+    }
+
+    .library-group.overview::before {
+      background: linear-gradient(90deg, #6d5b46, #9d8361);
     }
 
     .library-group.paradigm {
-      background: linear-gradient(180deg, rgba(213, 106, 79, 0.1), rgba(255, 255, 255, 0.92));
-      border-color: rgba(213, 106, 79, 0.18);
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.76), transparent 40%),
+        linear-gradient(180deg, rgba(213, 106, 79, 0.06), rgba(255, 255, 255, 0.95));
+      border-color: rgba(213, 106, 79, 0.14);
+    }
+
+    .library-group.paradigm::before {
+      background: linear-gradient(90deg, var(--accent), #e09361);
     }
 
     .library-group.visual {
-      background: linear-gradient(180deg, rgba(15, 111, 116, 0.1), rgba(255, 255, 255, 0.92));
-      border-color: rgba(15, 111, 116, 0.18);
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.76), transparent 40%),
+        linear-gradient(180deg, rgba(15, 111, 116, 0.06), rgba(255, 255, 255, 0.95));
+      border-color: rgba(15, 111, 116, 0.14);
+    }
+
+    .library-group.visual::before {
+      background: linear-gradient(90deg, var(--teal), #49a7a2);
     }
 
     .library-group.benchmark {
-      background: linear-gradient(180deg, rgba(195, 154, 91, 0.12), rgba(255, 255, 255, 0.92));
-      border-color: rgba(155, 122, 67, 0.18);
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.76), transparent 40%),
+        linear-gradient(180deg, rgba(195, 154, 91, 0.08), rgba(255, 255, 255, 0.95));
+      border-color: rgba(155, 122, 67, 0.14);
+    }
+
+    .library-group.benchmark::before {
+      background: linear-gradient(90deg, #9b7a43, #c39a5b);
+    }
+
+    .library-group-head {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .library-group-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
     }
 
     .library-group-label {
       display: inline-flex;
       align-items: center;
-      margin-bottom: 12px;
       padding: 6px 10px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.74);
@@ -1196,6 +1546,7 @@
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34);
     }
 
     .library-group.overview .library-group-label {
@@ -1230,19 +1581,33 @@
       border: 1px solid rgba(22, 36, 45, 0.1);
       background: rgba(255, 255, 255, 0.88);
       color: var(--muted);
-      padding: 10px 14px;
+      padding: 11px 15px;
       border-radius: 999px;
       font: inherit;
       font-size: 0.9rem;
       font-weight: 800;
       text-decoration: none;
       cursor: pointer;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 8px 18px rgba(24, 37, 48, 0.06);
       transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
     .library-tab:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      color: var(--ink);
+      border-color: rgba(22, 36, 45, 0.16);
+    }
+
+    .library-tab-featured {
+      background: linear-gradient(135deg, rgba(15, 111, 116, 0.13), rgba(255, 255, 255, 0.96));
+      color: var(--teal);
+      border-color: rgba(15, 111, 116, 0.18);
+      box-shadow: 0 14px 28px rgba(15, 111, 116, 0.11);
+    }
+
+    .library-tab-featured:hover {
+      color: var(--teal);
+      border-color: rgba(15, 111, 116, 0.3);
     }
 
     .library-tab[data-kind="overview"].is-active,
@@ -1521,6 +1886,12 @@
       .library-controls {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .library-header,
+      .library-group.overview {
+        grid-template-columns: 1fr;
+      }
+
     }
 
     @media (max-width: 720px) {
@@ -1549,6 +1920,10 @@
         white-space: normal;
       }
 
+      .hero-title-line {
+        padding-right: 0.02em;
+      }
+
       .stat-grid,
       .card-grid,
       .paradigm-grid,
@@ -1569,6 +1944,10 @@
         padding: 12px 13px;
       }
 
+      .library-overview {
+        grid-template-columns: 1fr;
+      }
+
       .brand {
         display: none;
       }
@@ -1582,7 +1961,6 @@
         <nav aria-label="Section navigation">
           <div class="brand">AIGC-V Detection Survey</div>
           <div class="nav-links">
-            <a class="nav-link" href="#overview">Overview</a>
             <a class="nav-link" href="#paradigms">Paradigms</a>
             <a class="nav-link" href="#taxonomy">Taxonomy</a>
             <a class="nav-link" href="#landscape">Landscape</a>
@@ -1599,11 +1977,10 @@
           <div class="hero-copy">
             <h1>
               <span class="hero-title-main">
-                <span class="hero-title-line">Detecting</span>
-                <span class="hero-title-line">AI-Generated Video</span>
+                <span class="hero-title-line">Detecting AI-Generated Video</span>
               </span>
-              <span class="hero-title-sub"><span class="title-accent">A Vision-Language Dual-View</span> Survey for factual fidelity verification</span>
             </h1>
+            <p class="hero-title-sub"><span class="title-accent">A Vision-Language Dual-View</span> Survey for factual fidelity verification</p>
 
             <div class="author-block">
               <p class="authors">
@@ -1640,36 +2017,39 @@
 
             <div class="hero-actions">
               <a class="button primary" href="">Paper</a>
-              <a class="button secondary" href="https://github.com/dxhou/AI-Generated-Video-Detection" target="_blank" rel="noopener">GitHub</a>
-              <a class="button secondary" href="#taxonomy">Four-Layer Taxonomy</a>
-              <a class="button secondary" href="#paper-list">Paper List</a>
+              <a class="button secondary github-button" href="https://github.com/dxhou/AI-Generated-Video-Detection" target="_blank" rel="noopener">GitHub</a>
+              <a class="button secondary taxonomy-button" href="#taxonomy">Four-Layer Taxonomy</a>
               <a class="button ghost" href="#landscape">Method Landscape</a>
+              <a class="button secondary" href="#paper-list">Paper List</a>
             </div>
           </div>
 
           <div class="hero-visual">
             <article class="hero-panel">
               <span class="hero-panel-label">Core Framing</span>
-              <h2 class="hero-panel-title">From artifact spotting to evidence-backed verification.</h2>
+              <h2 class="hero-panel-title">From artifact matching to evidence tracing.</h2>
               <p class="hero-panel-copy">
-                Modern AI-generated video cannot be understood through frame artifacts alone. Detection must combine low-level forensic traces, temporal reasoning, cross-modal agreement, and world-grounded claim checking.
+                Modern AI-generated video cannot be understood through frame artifacts alone. Detection must combine low-level intrinsic cues, spatiotemporal consistency, cross-modal consistency, and language-guided world-level reasoning.
               </p>
             </article>
 
-            <div class="hero-insight-grid" aria-label="Survey framing highlights">
-              <article class="hero-insight-card">
-                <strong>Factual Fidelity Verification</strong>
-                <span>The task is not only to label a clip as fake, but to identify which claim, event, entity, or temporal segment breaks consistency with reality.</span>
+            <div class="hero-insight-grid card-grid" aria-label="Survey framing highlights">
+              <article class="concept-card">
+                <div class="card-label">Problem</div>
+                <h3 class="card-title">Factual Fidelity Verification</h3>
+                <p class="card-copy">The task is not only to label a clip as fake, but to identify which claim, event, entity, or temporal segment breaks consistency with reality.</p>
               </article>
 
-              <article class="hero-insight-card">
-                <strong>Two Evidence Sides</strong>
-                <span>The visual side covers intrinsic and spatiotemporal cues inside the clip, while the language side handles cross-modal grounding and world-level verification.</span>
+              <article class="concept-card">
+                <div class="card-label">Taxonomy</div>
+                <h3 class="card-title">Vision-Language Dual-View</h3>
+                <p class="card-copy">The visual side covers intrinsic cues and spatiotemporal consistency inside the clip, while the language side covers cross-modal consistency and language-guided world-level reasoning.</p>
               </article>
 
-              <article class="hero-insight-card">
-                <strong>Evidence-First Detection</strong>
-                <span>Trustworthy systems should identify, localize, and explain with structured evidence instead of collapsing everything into a single score.</span>
+              <article class="concept-card">
+                <div class="card-label">Deployment</div>
+                <h3 class="card-title">Evidence-First Detection</h3>
+                <p class="card-copy">Trustworthy systems should identify, localize, and explain with structured evidence instead of collapsing everything into a single score.</p>
               </article>
             </div>
           </div>
@@ -1677,7 +2057,7 @@
           <div class="figure-frame is-teaser hero-showcase">
             <img src="assets/figures/intro-fig.png" alt="AIGC-V detection overview figure">
             <p class="figure-caption">
-              The survey links generation settings, dual-view evidence aggregation, and final verification outputs in a single end-to-end detection framing.
+              The survey links generation settings, dual-view evidence pathways, and final verification outputs in a single end-to-end detection framing.
             </p>
           </div>
         </div>
@@ -1685,45 +2065,6 @@
     </header>
 
     <main>
-      <section id="overview">
-        <div class="container">
-          <div class="section-shell reveal">
-            <span class="section-kicker">Core Framing</span>
-            <h2>From artifact spotting to evidence-backed verification.</h2>
-            <p class="section-intro">
-              The central argument of this survey is simple: modern AI-generated video cannot be understood through frame artifacts alone.
-              Detection must combine low-level forensic traces, temporal reasoning, cross-modal agreement, and world-grounded claim checking.
-            </p>
-
-            <div class="card-grid">
-              <article class="concept-card">
-                <div class="card-label">Problem</div>
-                <h3 class="card-title">Factual Fidelity Verification</h3>
-                <p class="card-copy">
-                  The question is not only whether a clip is fake, but which claim, event, entity, or temporal segment breaks consistency with reality.
-                </p>
-              </article>
-
-              <article class="concept-card">
-                <div class="card-label">Taxonomy</div>
-                <h3 class="card-title">Vision-Language Dual-View</h3>
-                <p class="card-copy">
-                  The visual view covers intrinsic and spatiotemporal evidence; the language view covers cross-modal consistency and world-level reasoning.
-                </p>
-              </article>
-
-              <article class="concept-card">
-                <div class="card-label">Deployment</div>
-                <h3 class="card-title">Evidence-First Detection</h3>
-                <p class="card-copy">
-                  Trustworthy systems should identify, localize, and explain with structured evidence rather than collapse everything into a single score.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="paradigms">
         <div class="container">
           <div class="section-shell reveal">
@@ -1808,7 +2149,7 @@
                       <span class="view-chip visual">Visual View</span>
                       <h3 class="view-title">Perceptual evidence inside the video</h3>
                       <p>
-                        Focuses on whether frames, motion, and scene dynamics still behave like real captured footage. Best suited to residual traces, temporal coherence, and physically plausible evolution.
+                        Focuses on the visual modality and emphasizes statistical differences between AIGC-V and real videos. The pathway extends from frame-level intrinsic cues to spatiotemporal consistency across frames, forming the perceptual perspective for factual-fidelity verification.
                       </p>
                     </article>
 
@@ -1817,18 +2158,18 @@
                         <div class="card-label">L1</div>
                         <h3 class="card-title">Intrinsic Cue Analysis</h3>
                         <p class="card-copy">
-                          Frame-level distributional evidence such as frequency traces, geometry, physiology, and residual visual artifacts.
+                          Tests whether low-level visual signals still follow the statistical regularities of real videos, including frequency fingerprints, local geometry, physiological traces, and residual synthesis artifacts.
                         </p>
-                        <small>Boundary note: cues can be scored per frame and pooled.</small>
+                        <small>Boundary L1-2: Layer 1 focuses on frame-level intrinsic distributional cues.</small>
                       </article>
 
                       <article class="layer-card is-visual">
                         <div class="card-label">L2</div>
                         <h3 class="card-title">Spatiotemporal Consistency</h3>
                         <p class="card-copy">
-                          Sequence-level modeling of motion, physical feasibility, behavior, and long-range temporal coherence.
+                          Models frame-sequence relations to test whether motion, behavior, and physical transitions unfold plausibly over time as a real recorded video.
                         </p>
-                        <small>Boundary note: explicit inter-frame reasoning is required.</small>
+                        <small>Boundary L1-2 / L2-3: Layer 2 moves beyond frames to explicitly model spatiotemporal connections across the frame sequence, but it still stays within the visual modality and evaluates within-visual coherence.</small>
                       </article>
                     </div>
                   </div>
@@ -1838,7 +2179,7 @@
                       <span class="view-chip language">Language View</span>
                       <h3 class="view-title">Grounded verification across semantics and world knowledge</h3>
                       <p>
-                        Focuses on whether speech, text, events, and implied claims remain mutually consistent and externally verifiable, rather than only visually convincing.
+                        Defines a grounded verification pathway in which audio, speech, text, and visual evidence are first checked for within-video consistency, then extended to factual and knowledge-level verification when external evidence is required.
                       </p>
                     </article>
 
@@ -1847,25 +2188,25 @@
                         <div class="card-label">L3</div>
                         <h3 class="card-title">Cross-Modal Consistency</h3>
                         <p class="card-copy">
-                          Within-video verification across speech, text, and visuals, including lip-sync, voice-face identity, and semantic agreement.
+                          Performs within-video multimodal verification across speech, text, and visuals, from lip-speech synchrony to voice-face identity coherence and speech-text agreement.
                         </p>
-                        <small>Boundary note: evidence remains grounded within the clip itself.</small>
+                        <small>Boundary L2-3 / L3-4: Layer 3 goes beyond vision and relies on within-video cross-modal agreement, judging whether different modalities are mutually consistent in describing the same semantics.</small>
                       </article>
 
                       <article class="layer-card is-language">
                         <div class="card-label">L4</div>
                         <h3 class="card-title">Language-Guided World-Level Reasoning</h3>
                         <p class="card-copy">
-                          Prompts, agents, retrieval, and external knowledge are used to verify claims implied by the video against the real world.
+                          Moves beyond within-video agreement to verify implied claims against external facts, commonsense, physical rules, and explicit evidence chains.
                         </p>
-                        <small>Boundary note: external facts are needed for verification.</small>
+                        <small>Boundary L3-4: Layer 4 further requires external facts, commonsense, or physics for reasoning-based verification, even when the modalities appear mutually consistent.</small>
                       </article>
                     </div>
                   </div>
                 </div>
 
                 <div class="taxonomy-note">
-                  <strong>Operational boundary:</strong> Layers 1-2 remain inside visual evidence, while Layers 3-4 move into semantic verification. The split is decided by the detector's dominant evidence pathway, not by the benchmark name alone.
+                  <strong>Operational boundary:</strong> Evidence arrives through two complementary pathways: the visual view tests intrinsic and temporal plausibility, while the language view moves from within-video cross-modal verification to explicit claim checking and world-level reasoning. The split is decided by the detector's dominant evidence pathway.
                 </div>
               </div>
             </div>
@@ -1890,30 +2231,31 @@
             </figure>
 
             <div class="mini-grid">
-              <article class="mini-card">
+              <article class="mini-card is-visual">
                 <strong>Layer 1</strong>
-                <span class="card-copy">28 indexed methods</span>
+                <span class="card-copy">Remain foundational, but increasingly only the first signal rather than the whole detector.</span>
                 <small>Pixel and geometric artifacts, physiology, robustness.</small>
               </article>
-              <article class="mini-card">
+              <article class="mini-card is-visual">
                 <strong>Layer 2</strong>
-                <span class="card-copy">39 indexed methods</span>
+                <span class="card-copy">Become the visual center of gravity as single-frame artifacts grow less reliable.</span>
                 <small>Motion inconsistency, physics, human behavior.</small>
               </article>
-              <article class="mini-card">
+              <article class="mini-card is-language">
                 <strong>Layer 3</strong>
-                <span class="card-copy">33 indexed methods</span>
+                <span class="card-copy">Moving to a mainstream verification pathway.</span>
                 <small>Audio-visual agreement, text-video reasoning, localization.</small>
               </article>
-              <article class="mini-card">
+              <article class="mini-card is-language">
                 <strong>Layer 4</strong>
-                <span class="card-copy">19 indexed methods</span>
+                <span class="card-copy">Rising quickly as high-realism videos demand explicit evidence-first explainable checking.</span>
                 <small>Prompts, tools, retrieval, preference and reward modeling.</small>
               </article>
             </div>
+            <p class="mini-grid-note">These cards summarize the broader migration pattern across layers, while the table below anchors that shift with the survey's complete-year counts through 2025.</p>
 
             <div class="data-table-wrap">
-              <table aria-label="Year-wise shift toward the language view">
+              <table class="trend-table" aria-label="Year-wise shift toward the language view">
                 <thead>
                   <tr>
                     <th>Year</th>
@@ -1935,7 +2277,7 @@
                     <td>0</td>
                     <td>12</td>
                     <td>1</td>
-                    <td>7.7% yearly / 6.3% cumulative</td>
+                    <td><span class="share-value share-tier-1">7.7%</span> yearly / <span class="share-value share-tier-1">6.3%</span> cumulative</td>
                   </tr>
                   <tr>
                     <td>2021</td>
@@ -1945,7 +2287,7 @@
                     <td>0</td>
                     <td>11</td>
                     <td>4</td>
-                    <td>26.7% yearly / 16.1% cumulative</td>
+                    <td><span class="share-value share-tier-4">26.7%</span> yearly / <span class="share-value share-tier-2">16.1%</span> cumulative</td>
                   </tr>
                   <tr>
                     <td>2022</td>
@@ -1955,7 +2297,7 @@
                     <td>0</td>
                     <td>7</td>
                     <td>2</td>
-                    <td>22.2% yearly / 17.5% cumulative</td>
+                    <td><span class="share-value share-tier-3">22.2%</span> yearly / <span class="share-value share-tier-2">17.5%</span> cumulative</td>
                   </tr>
                   <tr>
                     <td>2023</td>
@@ -1965,7 +2307,7 @@
                     <td>0</td>
                     <td>6</td>
                     <td>4</td>
-                    <td>40.0% yearly / 22.0% cumulative</td>
+                    <td><span class="share-value share-tier-6">40.0%</span> yearly / <span class="share-value share-tier-3">22.0%</span> cumulative</td>
                   </tr>
                   <tr>
                     <td>2024</td>
@@ -1975,7 +2317,7 @@
                     <td>3</td>
                     <td>14</td>
                     <td>7</td>
-                    <td>33.3% yearly / 25.4% cumulative</td>
+                    <td><span class="share-value share-tier-5">33.3%</span> yearly / <span class="share-value share-tier-4">25.4%</span> cumulative</td>
                   </tr>
                   <tr>
                     <td>2025</td>
@@ -1985,12 +2327,12 @@
                     <td>15</td>
                     <td>18</td>
                     <td>30</td>
-                    <td>62.5% yearly / 40.3% cumulative</td>
+                    <td><span class="share-value share-tier-7">62.5%</span> yearly / <span class="share-value share-tier-6">40.3%</span> cumulative</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="note">The survey covers 221 papers as of March 2026; the year-wise trend table reports complete publication years through 2025 only, so in-progress 2026 entries are not folded into the yearly breakdown.</p>
+            <p class="note">The mini-cards summarize the longer-term layer transition, and the year-wise trend table anchors it with the survey's complete-year summary through 2025; in-progress 2026 entries are intentionally kept outside this trend view.</p>
           </div>
         </div>
       </section>
@@ -1999,14 +2341,14 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Benchmarks</span>
-            <h2 class="section-title-compact">Evaluation needs diagnostic depth, not only leaderboard scores.</h2>
+            <h2 class="section-title-compact">Evaluation needs diagnostic depth, not only scores.</h2>
             <p class="section-intro">
               Benchmark design should reveal why factual fidelity fails, where the failure occurs, and whether the system can ground its explanation with checkable evidence.
             </p>
 
             <div class="benchmark-grid">
               <article class="benchmark-card">
-                <div class="card-label">LMV · 14</div>
+                <div class="card-label">LMV · 14 benchmarks</div>
                 <h3 class="card-title">Local Manipulation Video</h3>
                 <p class="card-copy">
                   The deepest protocol tradition, emphasizing localized forensic residue, compression robustness, and cross-dataset transfer.
@@ -2014,7 +2356,7 @@
               </article>
 
               <article class="benchmark-card">
-                <div class="card-label">AVE · 12</div>
+                <div class="card-label">AVE · 12 benchmarks</div>
                 <h3 class="card-title">Audio-Visual Editing</h3>
                 <p class="card-copy">
                   Smaller but tightly aligned with synchrony, speaker-content consistency, and timestamped localization.
@@ -2022,15 +2364,15 @@
               </article>
 
               <article class="benchmark-card">
-                <div class="card-label">GVS · 20</div>
+                <div class="card-label">GVS · 20 benchmarks</div>
                 <h3 class="card-title">Generative Video Synthesis</h3>
                 <p class="card-copy">
-                  Rapidly changing benchmarks targeting cross-generator transfer, semantic fabrication, plausibility, and prompt-driven world knowledge.
+                  Rapidly changing benchmarks targeting cross-generator transfer, semantic fabrication, plausibility, and world-level reasoning.
                 </p>
               </article>
 
               <article class="benchmark-card">
-                <div class="card-label">Adjacency · 18</div>
+                <div class="card-label">Adjacency · 18 diagnostics</div>
                 <h3 class="card-title">Physics, World Dynamics, Explanation</h3>
                 <p class="card-copy">
                   Adjacent diagnostics matter because trustworthy detection increasingly depends on physical plausibility and grounded explanations.
@@ -2057,22 +2399,26 @@
 
             <div class="paper-hub">
               <div class="paper-cluster library-shell">
-                <div class="paper-cluster-header">
-                  <div>
+                <div class="paper-cluster-header library-header">
+                  <div class="library-header-copy">
                     <h3>Complete categorized index</h3>
-                    <p>Switch across paradigms, detection layers, and benchmark families to inspect the corresponding references and tables.</p>
+                    <p>Move cleanly across paradigms, detection layers, and benchmark families, then open the corresponding reference tables below.</p>
                   </div>
                 </div>
 
                 <div class="library-overview">
+                  <span class="library-overview-kicker">Navigation Tip</span>
                   <p>
-                    Start from the complete list or jump directly to the part of the literature you want to inspect.
+                    Use <strong>Methods Overview</strong> for the taxonomy first, then switch to paradigms, layer pages, or benchmark families when you want a more specific slice of the literature.
                   </p>
                 </div>
 
                 <div class="library-controls">
                   <div class="library-group overview">
-                    <span class="library-group-label">Overview</span>
+                    <div class="library-group-head">
+                      <span class="library-group-label">Overview</span>
+                      <p class="library-group-copy">Repository-level entry points and the complete flattened list.</p>
+                    </div>
                     <div class="library-tabs" role="tablist" aria-label="Paper library overview views">
                       <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md" data-mode="paperlist">Full Paper List</button>
                       <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md">Repository Overview</button>
@@ -2080,7 +2426,10 @@
                   </div>
 
                   <div class="library-group paradigm">
-                    <span class="library-group-label">Generation Paradigms</span>
+                    <div class="library-group-head">
+                      <span class="library-group-label">Generation Paradigms</span>
+                      <p class="library-group-copy">Navigate by manipulation type and synthesis regime.</p>
+                    </div>
                     <div class="library-tabs" role="tablist" aria-label="Generation paradigm views">
                       <button class="library-tab" type="button" data-kind="paradigm" data-md="library/paradigms/README.md">Paradigms Overview</button>
                       <button class="library-tab" type="button" data-kind="paradigm" data-md="library/paradigms/README.md" data-anchor="local-manipulation">Local Manipulation</button>
@@ -2090,9 +2439,12 @@
                   </div>
 
                   <div class="library-group visual">
-                    <span class="library-group-label">Detection Layers</span>
+                    <div class="library-group-head">
+                      <span class="library-group-label">Detection Layers</span>
+                      <p class="library-group-copy">Follow the survey taxonomy from intrinsic cues to world-level reasoning.</p>
+                    </div>
                     <div class="library-tabs" role="tablist" aria-label="Detection layer views">
-                      <button class="library-tab" type="button" data-kind="visual" data-md="library/methods/README.md">Methods Overview</button>
+                      <button class="library-tab library-tab-featured" type="button" data-kind="visual" data-md="library/methods/README.md">Methods Overview</button>
                       <button class="library-tab" type="button" data-kind="visual" data-md="library/methods/layer-1-intrinsic-cues.md">Layer 1</button>
                       <button class="library-tab" type="button" data-kind="visual" data-md="library/methods/layer-2-spatiotemporal.md">Layer 2</button>
                       <button class="library-tab" type="button" data-kind="language" data-md="library/methods/layer-3-cross-modal.md">Layer 3</button>
@@ -2101,7 +2453,10 @@
                   </div>
 
                   <div class="library-group benchmark">
-                    <span class="library-group-label">Benchmarks and Diagnostics</span>
+                    <div class="library-group-head">
+                      <span class="library-group-label">Benchmarks and Diagnostics</span>
+                      <p class="library-group-copy">Inspect evaluation families and adjacent diagnostic testbeds.</p>
+                    </div>
                     <div class="library-tabs" role="tablist" aria-label="Benchmark and diagnostic views">
                       <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/README.md">Benchmarks Overview</button>
                       <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/local-manipulation-video.md">LMV</button>
@@ -2113,7 +2468,7 @@
                 </div>
 
                 <p class="paper-list-note">
-                  Choose a category above to switch the panel below.
+                  Select a route above to update the reading panel below.
                 </p>
                 <p class="library-status" id="library-status">Loading the selected library view.</p>
                 <div class="markdown-frame" id="paper-list-directory">
@@ -2389,7 +2744,7 @@
                     <li>[10/2025] VideoVerse: How Far is Your T2V Generator from a World Model? <a href="https://arxiv.org/abs/2510.08398">[paper]</a></li>
                     <li>[07/2025] T2VWorldBench: A Benchmark for Evaluating World Knowledge in Text-to-Video Generation. <a href="https://arxiv.org/abs/2507.18107">[paper]</a></li>
                     <li>[12/2024] Is Your World Simulator a Good Story Presenter? A Consecutive Events-Based Benchmark for Future Long Video Generation. <a href="https://arxiv.org/abs/2412.16211">[paper]</a></li>
-                    <li>[10/2024] WorldSimBench: Towards Video Generation Models as World Simulators. <a href="https://openreview.net/forum?id=4_hExrLJ7j">[paper]</a></li>
+                    <li>[10/2024] WorldSimBench: Towards Video Generation Models as World Simulators. <a href="https://openreview.net/forum?id=j9pVnmulQm">[paper]</a></li>
                     <li>[10/2024] Towards World Simulator: Crafting Physical Commonsense-Based Benchmark for Video Generation. <a href="https://proceedings.mlr.press/v267/meng25c.html">[paper]</a></li>
                     </ul>
                     <h4><a href="library/benchmarks/adjacent-diagnostics.md#c-explanation-oriented-diagnosis">C. Explanation-Oriented Diagnosis</a></h4>

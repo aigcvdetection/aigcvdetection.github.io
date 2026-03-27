@@ -23,15 +23,15 @@ This section reorganizes the detection part of the survey into the **four-layer 
 
 The numbers below come from the survey's compact AUC table. They are useful as a quick anchor, but **cross-dataset (CD)** and **in-domain (ID)** results should not be compared as if they were one unified leaderboard.
 
-| Method | Layer | Protocol | CDFv2 | DFDCP | DFDC |
+| Method | Layer | Protocol | [CDFv2](https://doi.org/10.1109/CVPR42600.2020.00327) | [DFDCP](https://arxiv.org/abs/1910.08854) | [DFDC](https://arxiv.org/abs/2006.07397) |
 | --- | --- | --- | --- | --- | --- |
-| FreqBlender | L1 | CD | 94.6 | 87.6 | 74.6 |
-| SeeABLE | L1 | CD | 87.3 | 86.3 | 75.9 |
-| LSDA | L1 | CD | 83.0 | 81.5 | 73.6 |
-| Style Latent Flows | L1 | CD | 89.0 | -- | -- |
-| TALL-Swin | L2 | CD | 90.8 | -- | 76.8 |
-| LipForensics | L2 | CD | 82.4 | -- | 73.5 |
-| Two-branch | L2 | CD | 76.6 | -- | -- |
-| MDS | L3 | ID | -- | -- | 90.6 |
-| RepDFD | L4 | CD | 89.9 | 95.0 | 81.0 |
-| LVLMDFD | L4 | CD | 94.3 | 92.4 | 77.0 |
+| [FreqBlender](https://arxiv.org/abs/2404.13872) | L1 | CD | 94.6 | 87.6 | 74.6 |
+| [SeeABLE](https://doi.org/10.1109/ICCV51070.2023.01921) | L1 | CD | 87.3 | 86.3 | 75.9 |
+| [LSDA](https://doi.org/10.1109/CVPR52733.2024.00858) | L1 | CD | 83.0 | 81.5 | 73.6 |
+| [Style Latent Flows](https://doi.org/10.1109/CVPR52733.2024.00114) | L1 | CD | 89.0 | -- | -- |
+| [TALL-Swin](https://openaccess.thecvf.com/content/ICCV2023/papers/Xu_TALL_Thumbnail_Layout_for_Deepfake_Video_Detection_ICCV_2023_paper.pdf) | L2 | CD | 90.8 | -- | 76.8 |
+| [LipForensics](https://openaccess.thecvf.com/content/CVPR2021/papers/Haliassos_Lips_Dont_Lie_A_Generalisable_and_Robust_Approach_To_Face_CVPR_2021_paper.pdf) | L2 | CD | 82.4 | -- | 73.5 |
+| [Two-branch](https://doi.org/10.1007/978-3-030-58571-6_39) | L2 | CD | 76.6 | -- | -- |
+| [MDS](https://arxiv.org/abs/2005.14405) | L3 | ID | -- | -- | 90.6 |
+| [RepDFD](https://ojs.aaai.org/index.php/AAAI/article/view/32559) | L4 | CD | 89.9 | 95.0 | 81.0 |
+| [LVLMDFD](https://proceedings.mlr.press/v267/yu25d.html) | L4 | CD | 94.3 | 92.4 | 77.0 |
