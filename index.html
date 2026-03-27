@@ -290,21 +290,36 @@
     }
 
     .author-block {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
+      margin: 14px 0 18px;
     }
 
     .authors {
       margin: 0 0 12px;
-      font-size: 1rem;
+      font-size: 1.08rem;
+      line-height: 1.72;
       font-weight: 600;
       color: var(--ink);
+    }
+
+    .authors a {
+      text-decoration: underline;
+      text-decoration-color: rgba(15, 111, 116, 0.24);
+      text-underline-offset: 0.14em;
+      transition: color 0.22s ease, text-decoration-color 0.22s ease;
+    }
+
+    .authors a:hover {
+      color: var(--teal);
+      text-decoration-color: rgba(15, 111, 116, 0.52);
     }
 
     .authors sup {
       color: var(--teal);
       font-weight: 800;
+    }
+
+    .authors sup + sup {
+      margin-left: 0.08em;
     }
 
     .affiliations {
@@ -766,13 +781,18 @@
     }
 
     .view-panel .view-chip {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      transform: translateY(-11px);
     }
 
     .view-title {
-      margin: 0 0 8px;
+      margin: 6px 0 8px;
       font-size: 1.18rem;
       line-height: 1.15;
+    }
+
+    .section-title-compact {
+      font-size: clamp(1.7rem, 2.9vw, 2.52rem);
     }
 
     .view-panel.visual .view-title {
@@ -1596,23 +1616,17 @@
               </span>
               <span class="hero-title-sub"><span class="title-accent">A Vision-Language Dual-View</span> Survey for factual fidelity verification</span>
             </h1>
-            <p class="lede">
-              As video generators move from localized edits to fully synthetic, cinematic scenes, artifact-centric detection is no longer enough.
-              This survey reframes AIGC-V detection as <strong>factual fidelity verification</strong>: whether the events, entities, and physical processes depicted in a video remain consistent with the real world.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button primary" href="">Paper</a>
-              <a class="button secondary" href="https://github.com/dxhou/AI-Generated-Video-Detection" target="_blank" rel="noopener">GitHub</a>
-              <a class="button secondary" href="#taxonomy">Four-Layer Taxonomy</a>
-              <a class="button secondary" href="#paper-list">Paper List</a>
-              <a class="button ghost" href="#landscape">Method Landscape</a>
-            </div>
 
             <div class="author-block">
               <p class="authors">
-                Dylan Xinming Hou<sup>1</sup> · Juntian Zhang<sup>2</sup> · Xu Gu<sup>2</sup> · Yichen Wu<sup>3</sup> ·
-                Nils Lukas<sup>1</sup> · Gus Xia<sup>1</sup> · Xiuying Chen<sup>1</sup> · Yuhan Liu<sup>1</sup>
+                <a href="https://dxhou.github.io/" target="_blank" rel="noopener noreferrer">Dylan Xinming Hou</a><sup>1</sup>,
+                <a href="https://scholar.google.com/citations?user=K-6vOfkAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Juntian Zhang</a><sup>2</sup>,
+                Xu Gu<sup>2</sup>,
+                <a href="https://wuyichen-97.github.io/" target="_blank" rel="noopener noreferrer">Yichen Wu</a><sup>3</sup>,
+                <a href="https://nilslukas.github.io/" target="_blank" rel="noopener noreferrer">Nils Lukas</a><sup>1</sup>,
+                <a href="https://www.musicxlab.com/members/gus/" target="_blank" rel="noopener noreferrer">Gus Xia</a><sup>1</sup>,
+                <a href="https://iriscxy.github.io/" target="_blank" rel="noopener noreferrer">Xiuying Chen</a><sup>1</sup>,
+                <a href="https://liuyuhan31.github.io/" target="_blank" rel="noopener noreferrer">Yuhan Liu</a><sup>1</sup><sup>&dagger;</sup>
               </p>
               <div class="affiliations">
                 <div class="affiliation-chip">
@@ -1628,7 +1642,20 @@
                   <span><sup>3</sup> Harvard University</span>
                 </div>
               </div>
-              <p class="correspondence">Corresponding author: Yuhan Liu · yuhan.liu@mbzuai.ac.ae</p>
+              <p class="correspondence">&dagger; Corresponding author: Yuhan Liu · yuhan.liu@mbzuai.ac.ae</p>
+            </div>
+
+            <p class="lede">
+              As video generators move from localized edits to fully synthetic, cinematic scenes, artifact-centric detection is no longer enough.
+              This survey reframes AIGC-V detection as <strong>factual fidelity verification</strong>: whether the events, entities, and physical processes depicted in a video remain consistent with the real world.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="">Paper</a>
+              <a class="button secondary" href="https://github.com/dxhou/AI-Generated-Video-Detection" target="_blank" rel="noopener">GitHub</a>
+              <a class="button secondary" href="#taxonomy">Four-Layer Taxonomy</a>
+              <a class="button secondary" href="#paper-list">Paper List</a>
+              <a class="button ghost" href="#landscape">Method Landscape</a>
             </div>
           </div>
 
@@ -1713,7 +1740,7 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Generation Side</span>
-            <h2>Three paradigms reshape where the evidence lives.</h2>
+            <h2 class="section-title-compact">Three paradigms reshape where the evidence lives.</h2>
             <p class="section-intro">
               The survey organizes AI-generated video into three broad paradigms. Each one changes which cues are most useful, and therefore which detection strategies remain reliable.
             </p>
@@ -1772,7 +1799,7 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Detection Side</span>
-            <h2>The dual-view, four-layer taxonomy.</h2>
+            <h2 class="section-title-compact">The dual-view, four-layer taxonomy.</h2>
             <p class="section-intro">
               The taxonomy is organized by the dominant evidence pathway used for decision-making, not by a rigid task label.
               It moves from low-level perception to high-level cognition while keeping the boundary between layers operational.
@@ -1862,7 +1889,7 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Methods</span>
-            <h2>A field shifting toward the language view.</h2>
+            <h2 class="section-title-compact">A field shifting toward the language view.</h2>
             <p class="section-intro">
               The landscape figure highlights the transition from artifact matching in traditional deepfake detection to evidence-based semantic verification enabled by vision-language models and agentic pipelines.
             </p>
@@ -1984,7 +2011,7 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Benchmarks</span>
-            <h2>Evaluation needs diagnostic depth, not only leaderboard scores.</h2>
+            <h2 class="section-title-compact">Evaluation needs diagnostic depth, not only leaderboard scores.</h2>
             <p class="section-intro">
               Benchmark design should reveal why factual fidelity fails, where the failure occurs, and whether the system can ground its explanation with checkable evidence.
             </p>
@@ -2035,9 +2062,9 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Paper List</span>
-            <h2>The full categorized paper library.</h2>
+            <h2 class="section-title-compact">The full categorized paper library.</h2>
             <p class="section-intro">
-              This section follows the copied <code>list/</code> hierarchy directly rather than selecting a few distilled summaries. Browse the complete paper-first index by paradigm, detection layer, benchmark family, and adjacent diagnostic category below.
+              Browse the paper-first index by paradigm, detection layer, benchmark family, and adjacent diagnostic category.
             </p>
 
             <div class="paper-hub">
@@ -2045,14 +2072,13 @@
                 <div class="paper-cluster-header">
                   <div>
                     <h3>Complete categorized index</h3>
-                    <p>The list below is rendered directly into this page from the copied <code>library/</code> materials. It no longer depends on view switching, remote loading, or Markdown fetch logic.</p>
+                    <p>Switch across paradigms, detection layers, and benchmark families to inspect the corresponding references and tables.</p>
                   </div>
-                  <span class="paper-pill">Directly adapted from list/</span>
                 </div>
 
                 <div class="library-overview">
                   <p>
-                    Start from the full list and use the local jump links to move through paradigms, all four detection layers, and benchmark families. The full categorized index stays visible by default.
+                    Start from the complete list or jump directly to the part of the literature you want to inspect.
                   </p>
                 </div>
 
@@ -2099,7 +2125,7 @@
                 </div>
 
                 <p class="paper-list-note">
-                  Choose a category above to switch the panel below. If JavaScript is unavailable, the full paper list remains visible as a fallback.
+                  Choose a category above to switch the panel below.
                 </p>
                 <p class="library-status" id="library-status">Loading the selected library view.</p>
                 <div class="markdown-frame" id="paper-list-directory">
@@ -2398,48 +2424,48 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Challenges and Future</span>
-            <h2>Trustworthy detection is an evidence-governance problem.</h2>
+            <h2 class="section-title-compact">Toward evidence-first and trustworthy AIGC-V detection.</h2>
             <p class="section-intro">
-              Strong deployment is not just about improving raw classification accuracy. It requires systems that remain auditable when evidence is weak, conflicting, or incomplete.
+              The next phase is not just stronger clip-level discrimination. It requires diagnostic evaluation, claim-level supervision, unified explainable detection, and deployment protocols that preserve calibration when evidence is weak, conflicting, or incomplete.
             </p>
 
             <div class="challenge-grid">
               <article class="challenge-card">
                 <div class="card-label">01</div>
-                <h3 class="card-title">Diagnose the real failure</h3>
+                <h3 class="card-title">Robust diagnostic evaluation</h3>
                 <p class="card-copy">
-                  Evaluation should show where factual fidelity breaks, not only whether real and fake clips separate on a closed set.
+                  Move beyond clip-level AUC or EER. Evaluation should reveal which factual proposition fails, where the violation occurs, and how brittle the detector becomes under shift, transfer, codec changes, and modern synthesis pipelines.
                 </p>
               </article>
 
               <article class="challenge-card">
                 <div class="card-label">02</div>
-                <h3 class="card-title">Supervise evidence, not only labels</h3>
+                <h3 class="card-title">Claim-level and dynamic evaluation</h3>
                 <p class="card-copy">
-                  Claim annotations, timestamped grounding, and dynamic testbeds are increasingly necessary as generators suppress obvious artifacts.
+                  Benchmarks should move from clip labels to checkable claims with timestamped evidence, targeted stress tests, and continuously refreshed generator pools rather than static one-off test sets.
                 </p>
               </article>
 
               <article class="challenge-card">
                 <div class="card-label">03</div>
-                <h3 class="card-title">Return structured evidence</h3>
+                <h3 class="card-title">Unified explainable detection</h3>
                 <p class="card-copy">
-                  Cross-layer fusion is only useful when it preserves traceable segments, mismatches, entities, and claims instead of collapsing into opaque confidence scores.
+                  Trustworthy AIGC-V detection is a two-pathway problem: perceptual evidence plus fact-level verification. Cross-layer fusion should preserve low-level traces, localized mismatches, and tested claims as individually inspectable evidence objects.
                 </p>
               </article>
 
               <article class="challenge-card">
                 <div class="card-label">04</div>
-                <h3 class="card-title">Design for calibration and abstention</h3>
+                <h3 class="card-title">Evidence-first trustworthy detection</h3>
                 <p class="card-copy">
-                  Provenance, uncertainty calibration, and abstention become part of the detection problem once decisions are used in high-stakes verification pipelines.
+                  Systems should identify, localize, and explain with calibrated uncertainty, provenance-aware cross-checks, and abstention when evidence remains incomplete or internally contradictory.
                 </p>
               </article>
             </div>
 
             <div class="callout">
               <strong>Broader research direction</strong>
-              Progress on trustworthy AIGC-V detection will likely require tighter collaboration between computer vision and NLP: one side contributes grounded spatiotemporal evidence, the other contributes claim decomposition, reasoning, grounding, and evidence-aware explanation.
+              Progress on trustworthy AIGC-V detection will likely require tighter collaboration between CV and NLP: CV contributes grounded perceptual and spatiotemporal evidence, while NLP contributes claim decomposition, retrieval, reasoning, grounding, and evidence-aware explanation in a unified evidence graph that also supports provenance checks, calibration, and abstention.
             </div>
           </div>
         </div>
@@ -2449,7 +2475,7 @@
         <div class="container">
           <div class="section-shell reveal">
             <span class="section-kicker">Citation</span>
-            <h2>Citation.</h2>
+            <h2 class="section-title-compact">Citation.</h2>
             <p class="section-intro">
               If you use this survey or its taxonomy in your work, please cite it as follows.
             </p>
@@ -2473,7 +2499,7 @@
       <div class="container">
         <div class="footer-shell">
           <span>Designed as a standalone static academic homepage inspired by modern project-page layouts.</span>
-          <span>All bundled figures come from the paper assets in this repository.</span>
+          <span>Designed and Maintained by Dylan Hou | Last updated: 2026-03-27</span>
         </div>
       </div>
     </footer>
