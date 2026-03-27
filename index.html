@@ -9,6 +9,9 @@
   <meta property="og:description" content="A survey reframing AI-generated video detection as factual fidelity verification.">
   <meta property="og:image" content="assets/figures/intro-fig.png">
   <meta property="og:type" content="website">
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -170,8 +173,7 @@
     .hero-card {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
-      gap: 24px 26px;
+      gap: 24px;
       align-items: start;
       padding: 34px;
       border-radius: 36px;
@@ -203,13 +205,14 @@
     .hero-copy {
       display: grid;
       align-content: start;
+      max-width: 1080px;
     }
 
     h1 {
       margin: 0 0 14px;
       font-family: "Optimistic", "Times New Roman", serif;
-      font-size: clamp(2.7rem, 6.1vw, 5rem);
-      line-height: 0.96;
+      font-size: clamp(2.7rem, 5.55vw, 4.7rem);
+      line-height: 0.94;
       letter-spacing: -0.04em;
     }
 
@@ -221,10 +224,6 @@
 
     .hero-title-line {
       display: block;
-    }
-
-    .hero-title-line:last-child {
-      white-space: nowrap;
     }
 
     .hero-title-sub {
@@ -343,11 +342,14 @@
 
     .hero-visual {
       display: grid;
-      align-content: start;
-      gap: 16px;
+      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+      gap: 18px;
+      align-items: stretch;
     }
 
     .hero-panel {
+      display: grid;
+      align-content: start;
       padding: 22px;
       border-radius: 28px;
       background:
@@ -377,8 +379,45 @@
       line-height: 1.55;
     }
 
+    .hero-panel-title {
+      margin: 14px 0 0;
+      font-family: "Optimistic", "Times New Roman", serif;
+      font-size: clamp(1.55rem, 2.45vw, 2.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .hero-insight-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-insight-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(22, 36, 45, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-insight-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-insight-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.62;
+    }
+
     .hero-showcase {
-      grid-column: 1 / -1;
+      margin-top: 2px;
     }
 
     .figure-frame {
@@ -414,11 +453,11 @@
     }
 
     .figure-frame.is-teaser img {
-      aspect-ratio: 1403 / 369;
+      aspect-ratio: 2400 / 631;
     }
 
     .figure-frame.is-strip img {
-      aspect-ratio: 1384 / 265;
+      aspect-ratio: 2400 / 459;
     }
 
     .figure-frame.is-landscape {
@@ -429,7 +468,7 @@
     }
 
     .figure-frame.is-landscape img {
-      aspect-ratio: 1295 / 667;
+      aspect-ratio: 2400 / 1608;
       background:
         radial-gradient(circle at top left, rgba(15, 111, 116, 0.08), transparent 46%),
         radial-gradient(circle at bottom right, rgba(213, 106, 79, 0.08), transparent 40%),
@@ -443,9 +482,10 @@
     }
 
     .figure-frame.is-taxonomy img {
-      width: min(100%, 540px);
+      width: 100%;
+      max-width: 1040px;
       margin: 0 auto;
-      aspect-ratio: 1044 / 782;
+      aspect-ratio: 2400 / 1798;
     }
 
     .figure-caption {
@@ -473,8 +513,8 @@
 
     .stat-card strong {
       display: block;
-      font-size: 1.84rem;
-      line-height: 1;
+      font-size: 1.12rem;
+      line-height: 1.2;
       color: var(--ink);
     }
 
@@ -585,21 +625,25 @@
 
     .split-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
       gap: 20px;
       align-items: start;
     }
 
+    .paradigm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
     .taxonomy-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
       gap: 20px;
       align-items: start;
     }
 
     .taxonomy-side {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
     .taxonomy-views {
@@ -657,6 +701,24 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
+    }
+
+    .taxonomy-rows {
+      display: grid;
+      gap: 16px;
+    }
+
+    .taxonomy-row {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.42fr) minmax(0, 0.58fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .taxonomy-row-layers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .view-panel {
@@ -1067,6 +1129,10 @@
       margin-bottom: 18px;
     }
 
+    .paper-cluster-header h3 {
+      margin: 0 0 8px;
+    }
+
     .library-overview {
       display: grid;
       gap: 18px;
@@ -1161,6 +1227,7 @@
       font: inherit;
       font-size: 0.9rem;
       font-weight: 800;
+      text-decoration: none;
       cursor: pointer;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -1201,6 +1268,14 @@
     .library-tab[data-kind="benchmark"].is-active {
       background: linear-gradient(135deg, #9b7a43, #c39a5b);
       border-color: rgba(155, 122, 67, 0.45);
+    }
+
+    .paper-list-note {
+      margin: 8px 0 0;
+      max-width: 78ch;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
 
     .library-status {
@@ -1256,24 +1331,28 @@
 
     .md-render h3 {
       color: var(--teal);
-      font-size: 1.12rem;
+      font-size: 1.22rem;
+      margin-top: 1.7em;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(22, 36, 45, 0.08);
     }
 
     .md-render h4 {
       color: var(--accent-strong);
-      font-size: 1rem;
+      font-size: 1.06rem;
     }
 
     .md-render p,
     .md-render li {
       color: var(--muted);
-      font-size: 0.99rem;
-      line-height: 1.72;
+      font-size: 1.02rem;
+      line-height: 1.8;
     }
 
     .md-render ul,
     .md-render ol {
       padding-left: 1.35rem;
+      margin: 0.45rem 0 1.15rem;
     }
 
     .md-render li + li {
@@ -1402,27 +1481,35 @@
     }
 
     .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js .reveal {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.is-visible {
+    .js .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     @media (max-width: 1080px) {
-      .hero-card,
+      .hero-visual,
       .split-layout,
-      .taxonomy-layout {
+      .taxonomy-layout,
+      .taxonomy-row {
         grid-template-columns: 1fr;
       }
 
       .card-grid,
+      .paradigm-grid,
       .mini-grid,
       .paper-columns,
       .taxonomy-views,
+      .taxonomy-row-layers,
       .library-controls {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1456,12 +1543,14 @@
 
       .stat-grid,
       .card-grid,
+      .paradigm-grid,
       .layer-grid,
       .mini-grid,
       .paper-columns,
       .library-controls,
       .taxonomy-views,
       .dual-view-band,
+      .taxonomy-row-layers,
       .benchmark-grid,
       .challenge-grid {
         grid-template-columns: 1fr;
@@ -1513,8 +1602,8 @@
             </p>
 
             <div class="hero-actions">
-              <a class="button primary" href="assets/paper.pdf" target="_blank" rel="noopener">Paper PDF</a>
-              <a class="button secondary" href="#citation">BibTeX</a>
+              <a class="button primary" href="">Paper</a>
+              <a class="button secondary" href="https://github.com/dxhou/AI-Generated-Video-Detection" target="_blank" rel="noopener">GitHub</a>
               <a class="button secondary" href="#taxonomy">Four-Layer Taxonomy</a>
               <a class="button secondary" href="#paper-list">Paper List</a>
               <a class="button ghost" href="#landscape">Method Landscape</a>
@@ -1544,37 +1633,36 @@
           </div>
 
           <div class="hero-visual">
-            <div class="hero-panel">
-              <span class="hero-panel-label">Dual-View Framing</span>
+            <article class="hero-panel">
+              <span class="hero-panel-label">Core Framing</span>
+              <h2 class="hero-panel-title">From artifact spotting to evidence-backed verification.</h2>
               <p class="hero-panel-copy">
-                AIGC-V detection links visual evidence inside the clip with language-grounded verification over events, entities, and real-world facts.
+                Modern AI-generated video cannot be understood through frame artifacts alone. Detection must combine low-level forensic traces, temporal reasoning, cross-modal agreement, and world-grounded claim checking.
               </p>
-            </div>
+            </article>
 
-            <div class="stat-grid" aria-label="Survey statistics">
-              <div class="stat-card">
-                <strong>3</strong>
-                <span>generation paradigms</span>
-              </div>
-              <div class="stat-card">
-                <strong>4</strong>
-                <span>evidence layers in the taxonomy</span>
-              </div>
-              <div class="stat-card">
-                <strong>119</strong>
-                <span>indexed detection methods</span>
-              </div>
-              <div class="stat-card">
-                <strong>46</strong>
-                <span>benchmark resources and datasets</span>
-              </div>
+            <div class="hero-insight-grid" aria-label="Survey framing highlights">
+              <article class="hero-insight-card">
+                <strong>Factual Fidelity Verification</strong>
+                <span>The task is not only to label a clip as fake, but to identify which claim, event, entity, or temporal segment breaks consistency with reality.</span>
+              </article>
+
+              <article class="hero-insight-card">
+                <strong>Two Evidence Sides</strong>
+                <span>The visual side covers intrinsic and spatiotemporal cues inside the clip, while the language side handles cross-modal grounding and world-level verification.</span>
+              </article>
+
+              <article class="hero-insight-card">
+                <strong>Evidence-First Detection</strong>
+                <span>Trustworthy systems should identify, localize, and explain with structured evidence instead of collapsing everything into a single score.</span>
+              </article>
             </div>
           </div>
 
-          <div class="figure-frame is-landscape hero-showcase">
-            <img src="assets/figures/landscape-cropped.png" alt="Method landscape of AIGC-V detection">
+          <div class="figure-frame is-teaser hero-showcase">
+            <img src="assets/figures/intro-fig.png" alt="AIGC-V detection overview figure">
             <p class="figure-caption">
-              The method landscape tracks the field's shift from low-level forensic screening to multimodal consistency verification and world-grounded reasoning.
+              The survey links generation settings, dual-view evidence aggregation, and final verification outputs in a single end-to-end detection framing.
             </p>
           </div>
         </div>
@@ -1638,7 +1726,7 @@
                 </p>
               </div>
 
-              <div class="stack">
+              <div class="paradigm-grid">
                 <article class="paradigm-card">
                   <div class="card-label">LMV</div>
                   <h3 class="card-title">Local Manipulation</h3>
@@ -1699,8 +1787,8 @@
               </div>
 
               <div class="taxonomy-side">
-                <div class="taxonomy-views">
-                  <section class="view-column visual">
+                <div class="taxonomy-rows">
+                  <div class="taxonomy-row">
                     <article class="view-panel visual">
                       <span class="view-chip visual">Visual View</span>
                       <h3 class="view-title">Perceptual evidence inside the video</h3>
@@ -1709,26 +1797,28 @@
                       </p>
                     </article>
 
-                    <article class="layer-card is-visual">
-                      <div class="card-label">L1</div>
-                      <h3 class="card-title">Intrinsic Cue Analysis</h3>
-                      <p class="card-copy">
-                        Frame-level distributional evidence such as frequency traces, geometry, physiology, and residual visual artifacts.
-                      </p>
-                      <small>Boundary note: cues can be scored per frame and pooled.</small>
-                    </article>
+                    <div class="taxonomy-row-layers">
+                      <article class="layer-card is-visual">
+                        <div class="card-label">L1</div>
+                        <h3 class="card-title">Intrinsic Cue Analysis</h3>
+                        <p class="card-copy">
+                          Frame-level distributional evidence such as frequency traces, geometry, physiology, and residual visual artifacts.
+                        </p>
+                        <small>Boundary note: cues can be scored per frame and pooled.</small>
+                      </article>
 
-                    <article class="layer-card is-visual">
-                      <div class="card-label">L2</div>
-                      <h3 class="card-title">Spatiotemporal Consistency</h3>
-                      <p class="card-copy">
-                        Sequence-level modeling of motion, physical feasibility, behavior, and long-range temporal coherence.
-                      </p>
-                      <small>Boundary note: explicit inter-frame reasoning is required.</small>
-                    </article>
-                  </section>
+                      <article class="layer-card is-visual">
+                        <div class="card-label">L2</div>
+                        <h3 class="card-title">Spatiotemporal Consistency</h3>
+                        <p class="card-copy">
+                          Sequence-level modeling of motion, physical feasibility, behavior, and long-range temporal coherence.
+                        </p>
+                        <small>Boundary note: explicit inter-frame reasoning is required.</small>
+                      </article>
+                    </div>
+                  </div>
 
-                  <section class="view-column language">
+                  <div class="taxonomy-row">
                     <article class="view-panel language">
                       <span class="view-chip language">Language View</span>
                       <h3 class="view-title">Grounded verification across semantics and world knowledge</h3>
@@ -1737,24 +1827,26 @@
                       </p>
                     </article>
 
-                    <article class="layer-card is-language">
-                      <div class="card-label">L3</div>
-                      <h3 class="card-title">Cross-Modal Consistency</h3>
-                      <p class="card-copy">
-                        Within-video verification across speech, text, and visuals, including lip-sync, voice-face identity, and semantic agreement.
-                      </p>
-                      <small>Boundary note: evidence remains grounded within the clip itself.</small>
-                    </article>
+                    <div class="taxonomy-row-layers">
+                      <article class="layer-card is-language">
+                        <div class="card-label">L3</div>
+                        <h3 class="card-title">Cross-Modal Consistency</h3>
+                        <p class="card-copy">
+                          Within-video verification across speech, text, and visuals, including lip-sync, voice-face identity, and semantic agreement.
+                        </p>
+                        <small>Boundary note: evidence remains grounded within the clip itself.</small>
+                      </article>
 
-                    <article class="layer-card is-language">
-                      <div class="card-label">L4</div>
-                      <h3 class="card-title">Language-Guided World-Level Reasoning</h3>
-                      <p class="card-copy">
-                        Prompts, agents, retrieval, and external knowledge are used to verify claims implied by the video against the real world.
-                      </p>
-                      <small>Boundary note: external facts are needed for verification.</small>
-                    </article>
-                  </section>
+                      <article class="layer-card is-language">
+                        <div class="card-label">L4</div>
+                        <h3 class="card-title">Language-Guided World-Level Reasoning</h3>
+                        <p class="card-copy">
+                          Prompts, agents, retrieval, and external knowledge are used to verify claims implied by the video against the real world.
+                        </p>
+                        <small>Boundary note: external facts are needed for verification.</small>
+                      </article>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="taxonomy-note">
@@ -1953,14 +2045,14 @@
                 <div class="paper-cluster-header">
                   <div>
                     <h3>Complete categorized index</h3>
-                    <p>The viewer below loads the copied Markdown sources from <code>survey-homepage/library/</code>, preserving the original grouping logic from the list folder instead of compressing everything into a few sample tables.</p>
+                    <p>The list below is rendered directly into this page from the copied <code>library/</code> materials. It no longer depends on view switching, remote loading, or Markdown fetch logic.</p>
                   </div>
                   <span class="paper-pill">Directly adapted from list/</span>
                 </div>
 
                 <div class="library-overview">
                   <p>
-                    Start with the complete paper list, then move into finer categories. The controls below mirror the original list hierarchy: generation paradigms, all four detection layers, and benchmark or adjacent diagnostic resources.
+                    Start from the full list and use the local jump links to move through paradigms, all four detection layers, and benchmark families. The full categorized index stays visible by default.
                   </p>
                 </div>
 
@@ -1968,47 +2060,333 @@
                   <div class="library-group overview">
                     <span class="library-group-label">Overview</span>
                     <div class="library-tabs" role="tablist" aria-label="Paper library overview views">
-                      <button class="library-tab is-active" type="button" data-md="library/README.md" data-kind="overview" data-mode="paperlist">Full Paper List</button>
-                      <button class="library-tab" type="button" data-md="library/README.md" data-kind="overview">Repository Overview</button>
+                      <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md" data-mode="paperlist">Full Paper List</button>
+                      <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md">Repository Overview</button>
                     </div>
                   </div>
 
                   <div class="library-group paradigm">
                     <span class="library-group-label">Generation Paradigms</span>
                     <div class="library-tabs" role="tablist" aria-label="Generation paradigm views">
-                      <button class="library-tab" type="button" data-md="library/paradigms/README.md" data-kind="paradigm">Paradigms Overview</button>
-                      <button class="library-tab" type="button" data-md="library/paradigms/README.md" data-kind="paradigm" data-anchor="local-manipulation">Local Manipulation</button>
-                      <button class="library-tab" type="button" data-md="library/paradigms/README.md" data-kind="paradigm" data-anchor="audio-visual-editing">Audio-Visual Editing</button>
-                      <button class="library-tab" type="button" data-md="library/paradigms/README.md" data-kind="paradigm" data-anchor="generative-video-synthesis">Generative Synthesis</button>
+                      <button class="library-tab" type="button" data-kind="paradigm" data-md="library/paradigms/README.md">Paradigms Overview</button>
+                      <button class="library-tab" type="button" data-kind="paradigm" data-md="library/paradigms/README.md" data-anchor="local-manipulation">Local Manipulation</button>
+                      <button class="library-tab" type="button" data-kind="paradigm" data-md="library/paradigms/README.md" data-anchor="audio-visual-editing">Audio-Visual Editing</button>
+                      <button class="library-tab" type="button" data-kind="paradigm" data-md="library/paradigms/README.md" data-anchor="generative-video-synthesis">Generative Synthesis</button>
                     </div>
                   </div>
 
                   <div class="library-group visual">
                     <span class="library-group-label">Detection Layers</span>
                     <div class="library-tabs" role="tablist" aria-label="Detection layer views">
-                      <button class="library-tab" type="button" data-md="library/methods/README.md" data-kind="visual">Methods Overview</button>
-                      <button class="library-tab" type="button" data-md="library/methods/layer-1-intrinsic-cues.md" data-kind="visual">Layer 1</button>
-                      <button class="library-tab" type="button" data-md="library/methods/layer-2-spatiotemporal.md" data-kind="visual">Layer 2</button>
-                      <button class="library-tab" type="button" data-md="library/methods/layer-3-cross-modal.md" data-kind="language">Layer 3</button>
-                      <button class="library-tab" type="button" data-md="library/methods/layer-4-world-level-reasoning.md" data-kind="language">Layer 4</button>
+                      <button class="library-tab" type="button" data-kind="visual" data-md="library/methods/README.md">Methods Overview</button>
+                      <button class="library-tab" type="button" data-kind="visual" data-md="library/methods/layer-1-intrinsic-cues.md">Layer 1</button>
+                      <button class="library-tab" type="button" data-kind="visual" data-md="library/methods/layer-2-spatiotemporal.md">Layer 2</button>
+                      <button class="library-tab" type="button" data-kind="language" data-md="library/methods/layer-3-cross-modal.md">Layer 3</button>
+                      <button class="library-tab" type="button" data-kind="language" data-md="library/methods/layer-4-world-level-reasoning.md">Layer 4</button>
                     </div>
                   </div>
 
                   <div class="library-group benchmark">
                     <span class="library-group-label">Benchmarks and Diagnostics</span>
                     <div class="library-tabs" role="tablist" aria-label="Benchmark and diagnostic views">
-                      <button class="library-tab" type="button" data-md="library/benchmarks/README.md" data-kind="benchmark">Benchmarks Overview</button>
-                      <button class="library-tab" type="button" data-md="library/benchmarks/local-manipulation-video.md" data-kind="benchmark">LMV</button>
-                      <button class="library-tab" type="button" data-md="library/benchmarks/audio-visual-editing.md" data-kind="benchmark">AVE</button>
-                      <button class="library-tab" type="button" data-md="library/benchmarks/generative-video-synthesis.md" data-kind="benchmark">GVS</button>
-                      <button class="library-tab" type="button" data-md="library/benchmarks/adjacent-diagnostics.md" data-kind="benchmark">Adjacent Diagnostics</button>
+                      <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/README.md">Benchmarks Overview</button>
+                      <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/local-manipulation-video.md">LMV</button>
+                      <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/audio-visual-editing.md">AVE</button>
+                      <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/generative-video-synthesis.md">GVS</button>
+                      <button class="library-tab" type="button" data-kind="benchmark" data-md="library/benchmarks/adjacent-diagnostics.md">Adjacent Diagnostics</button>
                     </div>
                   </div>
                 </div>
 
-                <p class="library-status" id="library-status">Loading the full paper list from the local Markdown copy.</p>
-                <div class="markdown-frame">
-                  <div class="md-render" id="md-render"></div>
+                <p class="paper-list-note">
+                  Choose a category above to switch the panel below. If JavaScript is unavailable, the full paper list remains visible as a fallback.
+                </p>
+                <p class="library-status" id="library-status">Loading the selected library view.</p>
+                <div class="markdown-frame" id="paper-list-directory">
+                  <div class="md-render" id="md-render">
+                    <h2>📚 Paper List</h2>
+                    <p>A flat, paper-first index in the same style as the reference list. Detailed notes and extra metadata stay on the linked section pages.</p>
+                    <!-- full-list:start -->
+                    <h3><a href="library/paradigms/README.md">Paradigms</a></h3>
+                    <h4><a href="library/paradigms/README.md#local-manipulation">Local Manipulation</a></h4>
+                    <ul>
+                    <li>[2025] FakeParts: a New Family of AI-Generated DeepFakes. <a href="https://arxiv.org/abs/2508.21052">[paper]</a></li>
+                    <li>[2025] FakeChain: Exposing Shallow Cues in Multi-Step Deepfake Detection. <a href="https://doi.org/10.1145/3746252.3761345">[paper]</a></li>
+                    <li>[2025] DynamicFace: High-quality and consistent face swapping for image and video using composable 3D facial priors. <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_DynamicFace_High-Quality_and_Consistent_Face_Swapping_for_Image_and_Video_ICCV_2025_paper.html">[paper]</a></li>
+                    <li>[2024] FuseAnyPart: Diffusion-Driven Facial Parts Swapping via Multiple Reference Images. <a href="https://arxiv.org/abs/2410.22771">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/paradigms/README.md#audio-visual-editing">Audio-Visual Editing</a></h4>
+                    <ul>
+                    <li>[2025] SayAnything: Audio-Driven Lip Synchronization with Conditional Video Diffusion. <a href="https://arxiv.org/abs/2502.11515">[paper]</a></li>
+                    <li>[2025] Audio-visual Controlled Video Diffusion with Masked Selective State Spaces Modeling for Natural Talking Head Generation. <a href="https://arxiv.org/abs/2504.02542">[paper]</a></li>
+                    <li>[2024] Ditto: Motion-Space Diffusion for Controllable Realtime Talking Head Synthesis. <a href="https://arxiv.org/abs/2411.19509">[paper]</a></li>
+                    <li>[2023] GeneFace: Generalized and High-Fidelity Audio-Driven 3D Talking Face Synthesis. <a href="https://arxiv.org/abs/2301.13430">[paper]</a></li>
+                    <li>[2022] VideoReTalking: Audio-based Lip Synchronization for Talking Head Video Editing in the Wild. <a href="https://arxiv.org/abs/2211.14758">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/paradigms/README.md#generative-video-synthesis">Generative Video Synthesis</a></h4>
+                    <ul>
+                    <li>[2026] Official Launch of Seedance 2.0. <a href="https://seed.bytedance.com/en/seedance2_0">[paper]</a></li>
+                    <li>[2025] Show-1: Marrying pixel and latent diffusion models for text-to-video generation. <a href="https://doi.org/10.1007/s11263-024-02271-9">[paper]</a></li>
+                    <li>[2025] Kling O1: Unified Multimodal Video Model. <a href="https://app.klingai.com/global/">[paper]</a></li>
+                    <li>[2025] Veo 3. <a href="https://deepmind.google/models/veo/">[paper]</a></li>
+                    <li>[2024] Grid diffusion models for text-to-video generation. <a href="https://doi.org/10.1109/cvpr52733.2024.00834">[paper]</a></li>
+                    <li>[2024] Sora 2. <a href="https://openai.com/sora/">[paper]</a></li>
+                    <li>[2024] Introducing Gen-3 Alpha: A New Frontier for Video Generation. <a href="https://runwayml.com/research/introducing-gen-3-alpha">[paper]</a></li>
+                    <li>[2024] Dream Machine. <a href="https://lumalabs.ai/dream-machine">[paper]</a></li>
+                    <li>[2023] Scalable Diffusion Models with Transformers. <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.pdf">[paper]</a></li>
+                    <li>[2022] Video Diffusion Models. <a href="https://arxiv.org/abs/2204.03458">[paper]</a></li>
+                    <li>[2022] Imagen Video: High Definition Video Generation with Diffusion Models. <a href="https://arxiv.org/abs/2210.02303">[paper]</a></li>
+                    <li>[2022] Make-A-Video: Text-to-Video Generation without Text-Video Data. <a href="https://arxiv.org/abs/2209.14792">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/methods/layer-1-intrinsic-cues.md">Layer 1: Intrinsic Visual Cues</a></h3>
+                    <h4><a href="library/methods/layer-1-intrinsic-cues.md#a-pixel-and-geometric-artifacts">A. Pixel and geometric artifacts</a></h4>
+                    <ul>
+                    <li>[12/2024] Freqblender: Enhancing deepfake detection by blending frequency knowledge. <a href="https://arxiv.org/abs/2404.13872">[paper]</a></li>
+                    <li>[10/2024] Real appearance modeling for more general deepfake detection. <a href="https://doi.org/10.1007/978-3-031-72943-0_23">[paper]</a></li>
+                    <li>[06/2024] Beyond deepfake images: Detecting ai-generated videos. <a href="https://doi.org/10.1109/cvprw63382.2024.00443">[paper]</a></li>
+                    <li>[06/2023] Noise based deepfake detection via multi-head relative-interaction. <a href="https://doi.org/10.1609/aaai.v37i12.26701">[paper]</a></li>
+                    <li>[10/2022] Hierarchical contrastive inconsistency learning for deepfake video detection. <a href="https://doi.org/10.1007/978-3-031-19775-8_35">[paper]</a></li>
+                    <li>[06/2021] MagDR: Mask-Guided Detection and Reconstruction for Defending Deepfakes. <a href="https://openaccess.thecvf.com/content/CVPR2021/html/Chen_MagDR_Mask-Guided_Detection_and_Reconstruction_for_Defending_Deepfakes_CVPR_2021_paper.html">[paper]</a></li>
+                    <li>[06/2021] Improving the efficiency and robustness of deepfakes detection through precise geometric features. <a href="https://doi.org/10.1109/cvpr46437.2021.00361">[paper]</a></li>
+                    <li>[05/2019] Exposing deep fakes using inconsistent head poses. <a href="https://doi.org/10.1109/icassp.2019.8683164">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-1-intrinsic-cues.md#b-physiological-features">B. Physiological features</a></h4>
+                    <ul>
+                    <li>[02/2024] Local attention and long-distance interaction of rPPG for deepfake detection. <a href="https://doi.org/10.1007/s00371-023-02833-x">[paper]</a></li>
+                    <li>[07/2022] Visual Representations of Physiological Signals for Fake Video Detection. <a href="https://arxiv.org/abs/2207.08380">[paper]</a></li>
+                    <li>[10/2021] Exposing deepfake with pixel-wise ar and ppg correlation from faint signals. <a href="https://arxiv.org/abs/2110.15561">[paper]</a></li>
+                    <li>[10/2021] A study on effective use of bpm information in deepfake detection. <a href="https://doi.org/10.1109/ictc52510.2021.9621186">[paper]</a></li>
+                    <li>[10/2020] Deeprhythm: Exposing deepfakes with attentional visual heartbeat rhythms. <a href="https://arxiv.org/abs/2006.07634">[paper]</a></li>
+                    <li>[10/2020] Deepfakeson-phys: Deepfakes detection based on heart rate estimation. <a href="https://arxiv.org/abs/2010.00400">[paper]</a></li>
+                    <li>[09/2020] How do the hearts of deep fakes beat? Deep fake source detection via interpreting residuals with biological signals. <a href="https://doi.org/10.1109/ijcb48548.2020.9304909">[paper]</a></li>
+                    <li>[07/2020] Fakecatcher: Detection of synthetic portrait videos using biological signals. <a href="https://doi.org/10.1109/tpami.2020.3009287">[paper]</a></li>
+                    <li>[10/2019] Predicting Heart Rate Variations of Deepfake Videos using Neural ODE. <a href="https://doi.org/10.1109/ICCVW.2019.00213">[paper]</a></li>
+                    <li>[12/2018] In ictu oculi: Exposing ai created fake videos by detecting eye blinking. <a href="https://doi.org/10.1109/wifs.2018.8630787">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-1-intrinsic-cues.md#c-distribution-discrepancy-and-robustness">C. Distribution discrepancy and robustness</a></h4>
+                    <ul>
+                    <li>[03/2026] Deepfake Forensics Adapter: A Dual-Stream Network for Generalizable Deepfake Detection. <a href="https://doi.org/10.48550/ARXIV.2603.01450">[paper]</a></li>
+                    <li>[12/2024] Can we leave deepfake data behind in training deepfake detector? <a href="https://doi.org/10.52202/079017-0691">[paper]</a></li>
+                    <li>[10/2024] Fake It till You Make It: Curricular Dynamic Forgery Augmentations Towards General Deepfake Detection. <a href="https://doi.org/10.1007/978-3-031-73016-0_7">[paper]</a></li>
+                    <li>[06/2024] Transcending Forgery Specificity with Latent Space Augmentation for Generalizable Deepfake Detection. <a href="https://doi.org/10.1109/CVPR52733.2024.00858">[paper]</a></li>
+                    <li>[06/2024] Exploiting style latent flows for generalizing deepfake video detection. <a href="https://doi.org/10.1109/cvpr52733.2024.00114">[paper]</a></li>
+                    <li>[06/2024] Turns Out I'm Not Real: Towards Robust Detection of AI-Generated Videos. <a href="https://arxiv.org/abs/2406.09601">[paper]</a></li>
+                    <li>[10/2023] Seeable: Soft discrepancies and bounded contrastive learning for exposing deepfakes. <a href="https://doi.org/10.1109/iccv51070.2023.01921">[paper]</a></li>
+                    <li>[10/2023] Quality-agnostic deepfake detection with intra-model collaborative learning. <a href="https://doi.org/10.1109/iccv51070.2023.02045">[paper]</a></li>
+                    <li>[12/2022] Ost: Improving generalization of deepfake detection via one-shot test-time training. <a href="https://doi.org/10.52202/068431-1786">[paper]</a></li>
+                    <li>[10/2020] Towards generalizable deepfake detection with locality-aware autoencoder. <a href="https://doi.org/10.1145/3340531.3411892">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/methods/layer-2-spatiotemporal.md">Layer 2: Spatiotemporal Consistency</a></h3>
+                    <h4><a href="library/methods/layer-2-spatiotemporal.md#a-temporal-and-motion-inconsistencies">A. Temporal and motion inconsistencies</a></h4>
+                    <ul>
+                    <li>[06/2025] GC-ConsFlow: Leveraging Optical Flow Residuals and Global Context for Robust Deepfake Detection. <a href="https://arxiv.org/abs/2501.13435">[paper]</a></li>
+                    <li>[06/2025] Generalizing deepfake video detection with plug-and-play: Video-level blending and spatiotemporal adapter tuning. <a href="https://doi.org/10.1109/cvpr52734.2025.01177">[paper]</a></li>
+                    <li>[01/2025] Vulnerability-Aware Spatio-Temporal Learning for Generalizable and Interpretable Deepfake Video Detection. <a href="https://arxiv.org/abs/2501.01184">[paper]</a></li>
+                    <li>[11/2024] Learning natural consistency representation for face forgery video detection. <a href="https://doi.org/10.1007/978-3-031-73010-8_24">[paper]</a></li>
+                    <li>[06/2024] Learning spatiotemporal inconsistency via thumbnail layout for face deepfake detection. <a href="https://doi.org/10.1007/s11263-024-02054-2">[paper]</a></li>
+                    <li>[02/2024] Decof: Generated video detection via frame consistency. <a href="https://arxiv.org/abs/2402.02085">[paper]</a></li>
+                    <li>[10/2023] Dynamic difference learning with spatio--temporal correlation for deepfake video detection. <a href="https://doi.org/10.1109/tifs.2023.3290752">[paper]</a></li>
+                    <li>[10/2023] Tall: Thumbnail layout for deepfake video detection. <a href="https://doi.org/10.1109/iccv51070.2023.02071">[paper]</a></li>
+                    <li>[07/2022] Region-Aware Temporal Inconsistency Learning for DeepFake Video Detection. <a href="https://doi.org/10.24963/ijcai.2022/129">[paper]</a></li>
+                    <li>[05/2022] Combining efficientnet and vision transformers for video deepfake detection. <a href="https://doi.org/10.1007/978-3-031-06433-3_19">[paper]</a></li>
+                    <li>[02/2022] Delving into the local: Dynamic inconsistency learning for deepfake video detection. <a href="https://doi.org/10.1609/aaai.v36i1.19955">[paper]</a></li>
+                    <li>[10/2021] Spatiotemporal inconsistency learning for deepfake video detection. <a href="https://doi.org/10.1145/3474085.3475508">[paper]</a></li>
+                    <li>[08/2021] Detecting Deepfake Videos with Temporal Dropout 3DCNN. <a href="https://doi.org/10.24963/ijcai.2021/178">[paper]</a></li>
+                    <li>[08/2021] Dynamic Inconsistency-aware DeepFake Video Detection. <a href="https://doi.org/10.24963/ijcai.2021/102">[paper]</a></li>
+                    <li>[01/2021] Interpretable and trustworthy deepfake detection via dynamic prototypes. <a href="https://doi.org/10.1109/wacv48630.2021.00202">[paper]</a></li>
+                    <li>[10/2020] Two-branch recurrent network for isolating deepfakes in videos. <a href="https://doi.org/10.1007/978-3-030-58571-6_39">[paper]</a></li>
+                    <li>[10/2020] Sharp multiple instance learning for deepfake video detection. <a href="https://doi.org/10.1145/3394171.3414034">[paper]</a></li>
+                    <li>[07/2020] Fsspotter: Spotting face-swapped video by spatial and temporal clues. <a href="https://doi.org/10.1109/icme46284.2020.9102914">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-2-spatiotemporal.md#b-physical-and-frequency-artifacts">B. Physical and frequency artifacts</a></h4>
+                    <ul>
+                    <li>[01/2026] MPF-Net: Exposing High-Fidelity AI-Generated Video Forgeries via Hierarchical Manifold Deviation and Micro-Temporal Fluctuations. <a href="https://doi.org/10.48550/ARXIV.2601.21408">[paper]</a></li>
+                    <li>[10/2025] D3: Training-Free AI-Generated Video Detection Using Second-Order Features. <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Zheng_D3_Training-Free_AI-Generated_Video_Detection_Using_Second-Order_Features_ICCV_2025_paper.html">[paper]</a></li>
+                    <li>[10/2025] Physics-Driven Spatiotemporal Modeling for AI-Generated Video Detection. <a href="https://openreview.net/forum?id=HiBoJLCyEo">[paper]</a></li>
+                    <li>[07/2025] AI-Generated Video Detection via Perceptual Straightening. <a href="https://openreview.net/forum?id=LsmUgStXby">[paper]</a></li>
+                    <li>[07/2025] Beyond Spatial Frequency: Pixel-wise Temporal Frequency-based Deepfake Video Detection. <a href="https://arxiv.org/abs/2507.02398">[paper]</a></li>
+                    <li>[07/2025] Leveraging Pre-Trained Visual Models for AI-Generated Video Detection. <a href="https://arxiv.org/abs/2507.13224">[paper]</a></li>
+                    <li>[07/2025] De-Fake: Style based Anomaly Deepfake Detection. <a href="https://arxiv.org/abs/2507.03334">[paper]</a></li>
+                    <li>[06/2025] Seeing What Matters: Generalizable AI-generated Video Detection with Forensic-Oriented Augmentation. <a href="https://arxiv.org/abs/2506.16802">[paper]</a></li>
+                    <li>[03/2025] VoD: Learning Volume of Differences for Video-Based Deepfake Detection. <a href="https://arxiv.org/abs/2503.07607">[paper]</a></li>
+                    <li>[01/2025] DiffFake: Exposing Deepfakes using Differential Anomaly Detection. <a href="https://doi.org/10.1109/wacvw65960.2025.00079">[paper]</a></li>
+                    <li>[12/2024] DIP: diffusion learning of inconsistency pattern for general deepfake detection. <a href="https://doi.org/10.1109/tmm.2024.3521766">[paper]</a></li>
+                    <li>[11/2024] A quality-centric framework for generic deepfake detection. <a href="https://arxiv.org/abs/2411.05335">[paper]</a></li>
+                    <li>[06/2020] Towards untrusted social video verification to combat deepfakes via face geometry consistency. <a href="https://doi.org/10.1109/cvprw50498.2020.00335">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-2-spatiotemporal.md#c-human-behavioral-and-interaction-dynamics">C. Human behavioral and interaction dynamics</a></h4>
+                    <ul>
+                    <li>[09/2025] DeepFake Detection in Dyadic Video Calls using Point of Gaze Tracking. <a href="https://arxiv.org/abs/2509.25503">[paper]</a></li>
+                    <li>[08/2025] When Deepfake Detection Meets Graph Neural Network: a Unified and Lightweight Learning Framework. <a href="https://arxiv.org/abs/2508.05526">[paper]</a></li>
+                    <li>[06/2025] Detecting Localized Deepfake Manipulations Using Action Unit-Guided Video Representations. <a href="https://doi.org/10.1109/cvprw67362.2025.00419">[paper]</a></li>
+                    <li>[10/2023] Exploiting complementary dynamic incoherence for deepfake video detection. <a href="https://doi.org/10.1109/tcsvt.2023.3238517">[paper]</a></li>
+                    <li>[06/2021] Lips Don't Lie: A Generalisable and Robust Approach To Face Forgery Detection. <a href="https://doi.org/10.1109/cvpr46437.2021.00500">[paper]</a></li>
+                    <li>[12/2020] Detecting deep-fake videos from appearance and behavior. <a href="https://doi.org/10.1109/wifs49906.2020.9360904">[paper]</a></li>
+                    <li>[12/2020] Identity-driven deepfake detection. <a href="https://arxiv.org/abs/2012.03930">[paper]</a></li>
+                    <li>[03/2020] Emotions Don't Lie: An Audio-Visual Deepfake Detection Method Using Affective Cues. <a href="https://arxiv.org/abs/2003.06711">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/methods/layer-3-cross-modal.md">Layer 3: Cross-Modal Consistency</a></h3>
+                    <h4><a href="library/methods/layer-3-cross-modal.md#a-audio-visual-consistency-detection">A. Audio-visual consistency detection</a></h4>
+                    <ul>
+                    <li>[03/2026] X-AVDT: Audio-Visual Cross-Attention for Robust Deepfake Detection. <a href="https://doi.org/10.48550/ARXIV.2603.08483">[paper]</a></li>
+                    <li>[01/2026] Revealing the Truth with ConLLM for Detecting Multi-Modal Deepfakes. <a href="https://doi.org/10.48550/ARXIV.2601.17530">[paper]</a></li>
+                    <li>[10/2025] PIA: Deepfake Detection Using Phoneme-Temporal and Identity-Dynamic Analysis. <a href="https://arxiv.org/abs/2510.14241">[paper]</a></li>
+                    <li>[10/2025] KLASSify to Verify: Audio-Visual Deepfake Detection Using SSL-based Audio and Handcrafted Visual Features. <a href="https://arxiv.org/abs/2508.07337">[paper]</a></li>
+                    <li>[05/2025] CAD: A General Multimodal Framework for Video Deepfake Detection via Cross-Modal Alignment and Distillation. <a href="https://arxiv.org/abs/2505.15233">[paper]</a></li>
+                    <li>[04/2025] Multi-modal deepfake detection via multi-task audio-visual prompt learning. <a href="https://doi.org/10.1609/aaai.v39i1.32042">[paper]</a></li>
+                    <li>[06/2024] Lost in Translation: Lip-Sync Deepfake Detection from Audio-Video Mismatch. <a href="https://doi.org/10.1109/cvprw63382.2024.00435">[paper]</a></li>
+                    <li>[06/2024] AVFF: Audio-Visual Feature Fusion for Video Deepfake Detection. <a href="https://arxiv.org/abs/2406.02951">[paper]</a></li>
+                    <li>[06/2024] Zero-Shot Fake Video Detection by Audio-Visual Consistency. <a href="https://arxiv.org/abs/2406.07854">[paper]</a></li>
+                    <li>[11/2023] Voice-Face Homogeneity Tells Deepfake. <a href="https://arxiv.org/abs/2203.02195">[paper]</a></li>
+                    <li>[10/2023] Integrating Audio-Visual Features for Multimodal Deepfake Detection. <a href="https://arxiv.org/abs/2310.03827">[paper]</a></li>
+                    <li>[11/2022] Lip Sync Matters: A Novel Multimodal Forgery Detector. <a href="https://doi.org/10.23919/APSIPAASC55919.2022.9980296">[paper]</a></li>
+                    <li>[04/2022] Audio-Visual Person-of-Interest DeepFake Detection. <a href="https://arxiv.org/abs/2204.03083">[paper]</a></li>
+                    <li>[03/2022] An Audio-Visual Attention Based Multimodal Network for Fake Talking Face Videos Detection. <a href="https://arxiv.org/abs/2203.05178">[paper]</a></li>
+                    <li>[10/2021] Joint Audio-Visual Deepfake Detection. <a href="https://doi.org/10.1109/ICCV48922.2021.01453">[paper]</a></li>
+                    <li>[07/2021] DeepFake Videos Detection Using Self-Supervised Decoupling Network. <a href="https://doi.org/10.1109/ICME51207.2021.9428368">[paper]</a></li>
+                    <li>[06/2021] Detecting Deep-Fake Videos From Aural and Oral Dynamics. <a href="https://doi.org/10.1109/cvprw53098.2021.00109">[paper]</a></li>
+                    <li>[12/2020] Preventing DeepFake Attacks on Speaker Authentication by Dynamic Lip Movement Analysis. <a href="https://api.semanticscholar.org/CorpusID:230998982">[paper]</a></li>
+                    <li>[10/2020] Not made for each other- Audio-Visual Dissonance-based Deepfake Detection and Localization. <a href="https://doi.org/10.1145/3394171.3413700">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-3-cross-modal.md#b-text-video-semantic-consistency-reasoning">B. Text-video semantic consistency reasoning</a></h4>
+                    <ul>
+                    <li>[07/2025] T^3SVFND: Towards an Evolving Fake News Detector for Emergencies with Test-time Training on Short Video Platforms. <a href="https://arxiv.org/abs/2507.20286">[paper]</a></li>
+                    <li>[06/2025] Unleashing the Potential of Consistency Learning for Detecting and Grounding Multi-Modal Media Manipulation. <a href="https://arxiv.org/abs/2506.05890">[paper]</a></li>
+                    <li>[04/2025] Consistency-aware Fake Videos Detection on Short Video Platforms. <a href="https://arxiv.org/abs/2504.21495">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-3-cross-modal.md#c-robust-learning-and-temporal-localization">C. Robust learning and temporal localization</a></h4>
+                    <ul>
+                    <li>[02/2026] Divide and Conquer: Multimodal Video Deepfake Detection via Cross-Modal Fusion and Localization. <a href="https://doi.org/10.48550/ARXIV.2602.00209">[paper]</a></li>
+                    <li>[01/2026] A-V Representation Learning via Audio Shift Prediction for Multimodal Deepfake Detection and Temporal Localization. <a href="https://wacv.thecvf.com/Conferences/2026/AcceptedPapers">[paper]</a></li>
+                    <li>[10/2025] HOLA: Enhancing Audio-visual Deepfake Detection via Hierarchical Contextual Aggregations and Efficient Pre-training. <a href="https://arxiv.org/abs/2507.22781">[paper]</a></li>
+                    <li>[10/2025] A Multimodal Deviation Perceiving Framework for Weakly-Supervised Temporal Forgery Localization. <a href="http://dx.doi.org/10.1145/3746027.3755534">[paper]</a></li>
+                    <li>[08/2025] SpeechForensics: Audio-Visual Speech Representation Learning for Face Forgery Detection. <a href="https://arxiv.org/abs/2508.09913">[paper]</a></li>
+                    <li>[08/2025] Weakly Supervised Multimodal Temporal Forgery Localization via Multitask Learning. <a href="https://arxiv.org/abs/2508.02179">[paper]</a></li>
+                    <li>[06/2025] Circumventing Shortcuts in Audio-visual Deepfake Detection Datasets with Unsupervised Learning. <a href="https://arxiv.org/abs/2412.00175">[paper]</a></li>
+                    <li>[04/2025] Audio-Visual Deepfake Detection With Local Temporal Inconsistencies. <a href="https://arxiv.org/abs/2501.08137">[paper]</a></li>
+                    <li>[11/2024] DiMoDif: Discourse Modality-information Differentiation for Audio-visual Deepfake Detection and Localization. <a href="https://arxiv.org/abs/2411.10193">[paper]</a></li>
+                    <li>[04/2024] Cross-Modality and Within-Modality Regularization for Audio-Visual DeepFake Detection. <a href="https://arxiv.org/abs/2401.05746">[paper]</a></li>
+                    <li>[06/2023] Self-supervised video forensics by audio-visual anomaly detection. <a href="https://doi.org/10.1109/cvpr52729.2023.01011">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/methods/layer-4-world-level-reasoning.md">Layer 4: World-Level Reasoning</a></h3>
+                    <h4><a href="library/methods/layer-4-world-level-reasoning.md#a-prompts-and-adapters-for-representation-calibration">A. Prompts and adapters for representation calibration</a></h4>
+                    <ul>
+                    <li>[07/2025] Unlocking the Capabilities of Large Vision-Language Models for Generalizable and Explainable Deepfake Detection. <a href="https://proceedings.mlr.press/v267/yu25d.html">[paper]</a></li>
+                    <li>[06/2025] AuthGuard: Generalizable Deepfake Detection via Language Guidance. <a href="https://arxiv.org/abs/2506.04501">[paper]</a></li>
+                    <li>[04/2025] Standing on the Shoulders of Giants: Reprogramming Visual-Language Model for General Deepfake Detection. <a href="https://ojs.aaai.org/index.php/AAAI/article/view/32559">[paper]</a></li>
+                    <li>[01/2025] DeepFake-Adapter: Dual-Level Adapter for DeepFake Detection. <a href="http://dx.doi.org/10.1007/s11263-024-02274-6">[paper]</a></li>
+                    <li>[11/2024] Prompt-guided Multi-modal contrastive learning for Cross-compression-rate Deepfake Detection. <a href="https://papers.bmvc2024.org/0619.pdf">[paper]</a></li>
+                    <li>[11/2024] On Using rPPG Signals for DeepFake Detection: A Cautionary Note. <a href="https://doi.org/10.1007/978-3-031-43153-1_20">[paper]</a></li>
+                    <li>[06/2024] Can ChatGPT Detect DeepFakes? A Study of Using Multimodal Large Language Models for Media Forensics. <a href="https://openaccess.thecvf.com/content/CVPR2024W/WMF/papers/Jia_Can_ChatGPT_Detect_DeepFakes_A_Study_of_Using_Multimodal_Large_CVPRW_2024_paper.pdf">[paper]</a></li>
+                    <li>[06/2024] How Good is ChatGPT at Audiovisual Deepfake Detection: A Comparative Study of ChatGPT, AI Models and Human Perception. <a href="https://www.nowpublishers.com/article/OpenAccessDownload/SIP-20250004">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-4-world-level-reasoning.md#b-tool-augmented-agents-for-evidence-gathering">B. Tool-augmented agents for evidence gathering</a></h4>
+                    <ul>
+                    <li>[12/2025] DeepAgent: A Dual Stream Multi Agent Fusion for Robust Multimodal Deepfake Detection. <a href="https://arxiv.org/abs/2512.07351">[paper]</a></li>
+                    <li>[08/2025] Memory-Anchored Multimodal Reasoning for Explainable Video Forensics. <a href="https://arxiv.org/abs/2508.14581">[paper]</a></li>
+                    <li>[06/2025] DAVID-XR1: Detecting AI-Generated Videos with Explainable Reasoning. <a href="https://arxiv.org/abs/2506.14827">[paper]</a></li>
+                    <li>[02/2025] LAVID: An Agentic LVLM Framework for Diffusion-Generated Video Detection. <a href="https://arxiv.org/abs/2502.14994">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/methods/layer-4-world-level-reasoning.md#c-post-training-preferences-and-rewards">C. Post-training, preferences and rewards</a></h4>
+                    <ul>
+                    <li>[02/2026] VideoVeritas: AI-Generated Video Detection via Perception Pretext Reinforcement Learning. <a href="https://doi.org/10.48550/ARXIV.2602.08828">[paper]</a></li>
+                    <li>[12/2025] Skyra: AI-Generated Video Detection via Grounded Artifact Reasoning. <a href="https://arxiv.org/abs/2512.15693">[paper]</a></li>
+                    <li>[10/2025] VidGuard-R1: AI-Generated Video Detection and Explanation via Reasoning MLLMs and RL. <a href="https://arxiv.org/abs/2510.02282">[paper]</a></li>
+                    <li>[10/2025] EDVD-LLaMA: Explainable Deepfake Video Detection via Multimodal Large Language Model Reasoning. <a href="https://arxiv.org/abs/2510.16442">[paper]</a></li>
+                    <li>[09/2025] Learning Human-Perceived Fakeness in AI-Generated Videos via Multimodal LLMs. <a href="https://arxiv.org/abs/2509.22646">[paper]</a></li>
+                    <li>[08/2025] Veritas: Generalizable Deepfake Detection via Pattern-Aware Reasoning. <a href="https://arxiv.org/abs/2508.21048">[paper]</a></li>
+                    <li>[07/2025] BusterX++: Towards Unified Cross-Modal AI-Generated Content Detection and Explanation with MLLM. <a href="https://arxiv.org/abs/2507.14632">[paper]</a></li>
+                    <li>[05/2025] BusterX: MLLM-Powered AI-Generated Video Forgery Detection and Explanation. <a href="https://arxiv.org/abs/2505.12620">[paper]</a></li>
+                    <li>[10/2024] X2-DFD: A framework for eXplainable and eXtendable Deepfake Detection. <a href="https://arxiv.org/abs/2410.06126">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/benchmarks/local-manipulation-video.md">Benchmarks: Local Manipulation Video</a></h3>
+                    <h4><a href="library/benchmarks/local-manipulation-video.md">Local Manipulation Video (LMV)</a></h4>
+                    <ul>
+                    <li>[02/2026] Beyond Static Artifacts: A Forensic Benchmark for Video Deepfake Reasoning in Vision Language Models. <a href="https://doi.org/10.48550/ARXIV.2602.21779">[paper]</a></li>
+                    <li>[11/2025] Exddv: A new dataset for explainable deepfake detection in video. <a href="https://arxiv.org/abs/2503.14421">[paper]</a></li>
+                    <li>[09/2024] Common sense reasoning for deepfake detection. <a href="https://doi.org/10.1007/978-3-031-73223-2_22">[paper]</a></li>
+                    <li>[06/2024] Ai-face: A million-scale demographically annotated ai-generated face dataset and fairness benchmark. <a href="https://doi.org/10.1109/cvpr52734.2025.00332">[paper]</a></li>
+                    <li>[07/2023] DeepfakeBench: A Comprehensive Benchmark of Deepfake Detection. <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/0e735e4b4f07de483cbe250130992726-Paper-Datasets_and_Benchmarks.pdf">[paper]</a></li>
+                    <li>[06/2023] DF-Platter: Multi-Face Heterogeneous Deepfake Dataset. <a href="https://doi.org/10.1109/cvpr52729.2023.00939">[paper]</a></li>
+                    <li>[01/2023] A Continual Deepfake Detection Benchmark: Dataset, Methods, and Essentials. <a href="https://doi.org/10.1109/wacv56688.2023.00139">[paper]</a></li>
+                    <li>[10/2021] Kodf: A large-scale korean deepfake detection dataset. <a href="https://arxiv.org/abs/2103.10094">[paper]</a></li>
+                    <li>[06/2021] ForgeryNet: A Versatile Benchmark for Comprehensive Forgery Analysis. <a href="https://doi.org/10.1109/cvpr46437.2021.00434">[paper]</a></li>
+                    <li>[10/2020] WildDeepfake: A Challenging Real-World Dataset for Deepfake Detection. <a href="https://doi.org/10.1145/3394171.3413769">[paper]</a></li>
+                    <li>[06/2020] The DeepFake Detection Challenge (DFDC) Dataset. <a href="https://arxiv.org/abs/2006.07397">[paper]</a></li>
+                    <li>[05/2020] DeeperForensics-1.0: A Large-Scale Dataset for Real-World Face Forgery Detection. <a href="https://doi.org/10.1109/cvpr42600.2020.00296">[paper]</a></li>
+                    <li>[09/2019] Celeb-df: A large-scale challenging dataset for deepfake forensics. <a href="https://doi.org/10.1109/cvpr42600.2020.00327">[paper]</a></li>
+                    <li>[01/2019] Faceforensics++: Learning to detect manipulated facial images. <a href="https://doi.org/10.1109/iccv.2019.00009">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/benchmarks/audio-visual-editing.md">Benchmarks: Audio-Visual Editing</a></h3>
+                    <h4><a href="library/benchmarks/audio-visual-editing.md">Audio-Visual Editing (AVE)</a></h4>
+                    <ul>
+                    <li>[03/2026] X-AVDT: Audio-Visual Cross-Attention for Robust Deepfake Detection. <a href="https://doi.org/10.48550/ARXIV.2603.08483">[paper]</a></li>
+                    <li>[10/2025] Av-deepfake1m++: A large-scale audio-visual deepfake benchmark with real-world perturbations. <a href="https://doi.org/10.1145/3746027.3761979">[paper]</a></li>
+                    <li>[08/2025] VCapAV: A Video-Caption Based Audio-Visual Deepfake Detection Dataset. <a href="https://doi.org/10.21437/interspeech.2025-1713">[paper]</a></li>
+                    <li>[08/2025] Memory-Anchored Multimodal Reasoning for Explainable Video Forensics. <a href="https://arxiv.org/abs/2508.14581">[paper]</a></li>
+                    <li>[07/2025] SocialDF: Benchmark Dataset and Detection Model for Mitigating Harmful Deepfake Content on Social Media Platforms. <a href="https://doi.org/10.1145/3733567.3735573">[paper]</a></li>
+                    <li>[05/2025] Tell me Habibi, is it Real or Fake? <a href="https://arxiv.org/abs/2505.22581">[paper]</a></li>
+                    <li>[05/2025] MAVOS-DD: Multilingual Audio-Video Open-Set Deepfake Detection Benchmark. <a href="https://arxiv.org/abs/2505.11109">[paper]</a></li>
+                    <li>[05/2025] Beyond Face Swapping: A Diffusion-Based Digital Human Benchmark for Multimodal Deepfake Detection. <a href="https://arxiv.org/abs/2505.16512">[paper]</a></li>
+                    <li>[10/2024] AV-Deepfake1M: A large-scale LLM-driven audio-visual deepfake dataset. <a href="https://doi.org/10.1145/3664647.3680795">[paper]</a></li>
+                    <li>[08/2024] WWW: Where, Which and Whatever Enhancing Interpretability in Multimodal Deepfake Detection. <a href="https://arxiv.org/abs/2408.02954">[paper]</a></li>
+                    <li>[11/2022] Do you really mean that? content driven audio-visual deepfake dataset and multimodal method for temporal forgery localization. <a href="https://doi.org/10.1109/dicta56598.2022.10034605">[paper]</a></li>
+                    <li>[08/2021] FakeAVCeleb: A Novel Audio-Video Multimodal Deepfake Dataset. <a href="https://arxiv.org/abs/2108.05080">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/benchmarks/generative-video-synthesis.md">Benchmarks: Generative Video Synthesis</a></h3>
+                    <h4><a href="library/benchmarks/generative-video-synthesis.md">Generative Video Synthesis (GVS)</a></h4>
+                    <ul>
+                    <li>[02/2026] SynthForensics: A Multi-Generator Benchmark for Detecting Synthetic Video Deepfakes. <a href="https://doi.org/10.48550/ARXIV.2602.04939">[paper]</a></li>
+                    <li>[02/2026] VideoVeritas: AI-Generated Video Detection via Perception Pretext Reinforcement Learning. <a href="https://doi.org/10.48550/ARXIV.2602.08828">[paper]</a></li>
+                    <li>[01/2026] Your One-Stop Solution for AI-Generated Video Detection. <a href="https://doi.org/10.48550/ARXIV.2601.11035">[paper]</a></li>
+                    <li>[12/2025] Skyra: AI-Generated Video Detection via Grounded Artifact Reasoning. <a href="https://arxiv.org/abs/2512.15693">[paper]</a></li>
+                    <li>[12/2025] Video Reality Test: Can AI-Generated ASMR Videos fool VLMs and Humans? <a href="https://arxiv.org/abs/2512.13281">[paper]</a></li>
+                    <li>[10/2025] EDVD-LLaMA: Explainable Deepfake Video Detection via Multimodal Large Language Model Reasoning. <a href="https://arxiv.org/abs/2510.16442">[paper]</a></li>
+                    <li>[10/2025] AEGIS: Authenticity Evaluation Benchmark for AI-Generated Video Sequences. <a href="https://doi.org/10.1145/3746027.3758295">[paper]</a></li>
+                    <li>[09/2025] Learning Human-Perceived Fakeness in AI-Generated Videos via Multimodal LLMs. <a href="https://arxiv.org/abs/2509.22646">[paper]</a></li>
+                    <li>[07/2025] BusterX++: Towards Unified Cross-Modal AI-Generated Content Detection and Explanation with MLLM. <a href="https://arxiv.org/abs/2507.14632">[paper]</a></li>
+                    <li>[06/2025] GenWorld: Towards Detecting AI-generated Real-world Simulation Videos. <a href="https://arxiv.org/abs/2506.10975">[paper]</a></li>
+                    <li>[06/2025] Ivy-fake: A unified explainable framework and benchmark for image and video aigc detection. <a href="https://arxiv.org/abs/2506.00979">[paper]</a></li>
+                    <li>[06/2025] DAVID-XR1: Detecting AI-Generated Videos with Explainable Reasoning. <a href="https://arxiv.org/abs/2506.14827">[paper]</a></li>
+                    <li>[05/2025] BusterX: MLLM-Powered AI-Generated Video Forgery Detection and Explanation. <a href="https://arxiv.org/abs/2505.12620">[paper]</a></li>
+                    <li>[04/2025] LOKI: A Comprehensive Synthetic Data Detection Benchmark using Large Multimodal Models. <a href="https://arxiv.org/abs/2410.09732">[paper]</a></li>
+                    <li>[03/2025] Deepfake-eval-2024: A multi-modal in-the-wild benchmark of deepfakes circulated in 2024. <a href="https://arxiv.org/abs/2503.02857">[paper]</a></li>
+                    <li>[01/2025] Genvidbench: A challenging benchmark for detecting ai-generated video. <a href="https://arxiv.org/abs/2501.11340">[paper]</a></li>
+                    <li>[12/2024] On Learning Multi-Modal Forgery Representation for Diffusion Generated Video Detection. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/dccbeb7a8df3065c4646928985edf435-Paper-Conference.pdf">[paper]</a></li>
+                    <li>[05/2024] Distinguish any fake videos: Unleashing the power of large-scale data and motion features. <a href="https://arxiv.org/abs/2405.15343">[paper]</a></li>
+                    <li>[05/2024] DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark. <a href="https://arxiv.org/abs/2405.19707">[paper]</a></li>
+                    <li>[02/2024] Detecting AI-Generated Video via Frame Consistency. <a href="https://arxiv.org/abs/2402.02085">[paper]</a></li>
+                    </ul>
+                    <h3><a href="library/benchmarks/adjacent-diagnostics.md">Benchmarks: Adjacent Diagnostics</a></h3>
+                    <h4><a href="library/benchmarks/adjacent-diagnostics.md#a-physical-rule-violations">A. Physical Rule Violations</a></h4>
+                    <ul>
+                    <li>[03/2026] Physion-Eval: Evaluating Physical Realism in Generated Video via Human Reasoning. <a href="https://arxiv.org/abs/2603.19607">[paper]</a></li>
+                    <li>[01/2026] VideoPhy-2: A Challenging Action-Centric Physical Commonsense Evaluation in Video Generation. <a href="https://openreview.net/forum?id=P8vQYmq3TB">[paper]</a></li>
+                    <li>[07/2025] PhyWorldBench: A Physical Realism Benchmark for Text-to-Video Generation. <a href="https://arxiv.org/abs/2507.13428">[paper]</a></li>
+                    <li>[05/2025] T2VPhysBench: A First-Principles Benchmark for Physical Consistency in Text-to-Video Generation. <a href="https://arxiv.org/abs/2505.00337">[paper]</a></li>
+                    <li>[04/2025] Morpheus: Benchmarking Physical Reasoning of Video Generative Models with Real Physical Experiments. <a href="https://arxiv.org/abs/2504.02918">[paper]</a></li>
+                    <li>[03/2025] Impossible Videos. <a href="https://proceedings.mlr.press/v267/bai25a.html">[paper]</a></li>
+                    <li>[01/2025] Do generative video models understand physical principles? <a href="https://arxiv.org/abs/2501.09038">[paper]</a></li>
+                    <li>[06/2024] VideoPhy: Evaluating Physical Commonsense for Video Generation. <a href="https://openreview.net/forum?id=5MWhU3t7WR">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/benchmarks/adjacent-diagnostics.md#b-world-dynamics-and-causality">B. World Dynamics and Causality</a></h4>
+                    <ul>
+                    <li>[12/2025] SVBench: Evaluation of Video Generation Models on Social Reasoning. <a href="https://arxiv.org/abs/2512.21507">[paper]</a></li>
+                    <li>[10/2025] VideoVerse: How Far is Your T2V Generator from a World Model? <a href="https://arxiv.org/abs/2510.08398">[paper]</a></li>
+                    <li>[07/2025] T2VWorldBench: A Benchmark for Evaluating World Knowledge in Text-to-Video Generation. <a href="https://arxiv.org/abs/2507.18107">[paper]</a></li>
+                    <li>[12/2024] Is Your World Simulator a Good Story Presenter? A Consecutive Events-Based Benchmark for Future Long Video Generation. <a href="https://arxiv.org/abs/2412.16211">[paper]</a></li>
+                    <li>[10/2024] WorldSimBench: Towards Video Generation Models as World Simulators. <a href="https://openreview.net/forum?id=4_hExrLJ7j">[paper]</a></li>
+                    <li>[10/2024] Towards World Simulator: Crafting Physical Commonsense-Based Benchmark for Video Generation. <a href="https://proceedings.mlr.press/v267/meng25c.html">[paper]</a></li>
+                    </ul>
+                    <h4><a href="library/benchmarks/adjacent-diagnostics.md#c-explanation-oriented-diagnosis">C. Explanation-Oriented Diagnosis</a></h4>
+                    <ul>
+                    <li>[12/2025] VideoHallu: Evaluating and Mitigating Multi-modal Hallucinations on Synthetic Video Understanding. <a href="https://openreview.net/forum?id=NoC9HT7Kf7">[paper]</a></li>
+                    <li>[12/2025] PhyDetEx: A Benchmark Dataset and Method for Detecting and Explaining Physical Plausibility in Text-to-Video Models. <a href="https://arxiv.org/abs/2512.01843">[paper]</a></li>
+                    <li>[11/2025] SPOTLIGHT: Identifying and Localizing Video Generation Errors Using VLMs. <a href="https://arxiv.org/abs/2511.18102">[paper]</a></li>
+                    <li>[10/2025] TRAVL: A Recipe for Making Video-Language Models Better Judges of Physics Implausibility. <a href="https://arxiv.org/abs/2510.07550">[paper]</a></li>
+                    </ul>
+                    <!-- full-list:end -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -2070,18 +2448,11 @@
       <section id="citation">
         <div class="container">
           <div class="section-shell reveal">
-            <span class="section-kicker">Resources</span>
-            <h2>Paper and citation.</h2>
+            <span class="section-kicker">Citation</span>
+            <h2>Citation.</h2>
             <p class="section-intro">
-              This page is a lightweight project homepage for the survey and its core figures. The assets below are bundled locally for direct static hosting.
+              If you use this survey or its taxonomy in your work, please cite it as follows.
             </p>
-
-            <div class="resource-row">
-              <a class="button primary" href="assets/paper.pdf" target="_blank" rel="noopener">Open Paper PDF</a>
-              <a class="button secondary" href="assets/citation.bib" download>Download BibTeX</a>
-              <a class="button secondary" href="assets/paper.bib" download>Download References</a>
-              <a class="button ghost" href="#top">Back to Top</a>
-            </div>
 
             <div class="citation-box">
               <pre>@misc{hou2026detecting,
@@ -2117,39 +2488,7 @@
     const libraryStatus = document.getElementById("library-status");
     const mdRender = document.getElementById("md-render");
     const libraryHtml = window.__LIBRARY_HTML__ || {};
-    const fallbackPaperListHtml = libraryHtml["library/README.md::paperlist"] || "";
-
-    if (mdRender && fallbackPaperListHtml) {
-      mdRender.innerHTML = fallbackPaperListHtml;
-    }
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealables.forEach((el) => revealObserver.observe(el));
-
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        const id = entry.target.id;
-        navLinks.forEach((link) => {
-          link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
-        });
-      });
-    }, {
-      rootMargin: "-45% 0px -45% 0px",
-      threshold: 0
-    });
-
-    sections.forEach((section) => navObserver.observe(section));
+    const fallbackPaperListHtml = mdRender ? mdRender.innerHTML : "";
 
     function resolveRelativePath(basePath, targetPath) {
       if (!targetPath || /^(https?:|mailto:|data:|javascript:)/i.test(targetPath) || targetPath.startsWith("#")) {
@@ -2187,6 +2526,30 @@
       });
     }
 
+    function stripEmbeddedFigures(root) {
+      root.querySelectorAll('div[align="center"]').forEach((block) => {
+        if (block.querySelector("img")) {
+          block.remove();
+        }
+      });
+
+      root.querySelectorAll("img").forEach((image) => {
+        const figureLink = image.closest("a");
+        if (figureLink) {
+          figureLink.remove();
+          return;
+        }
+
+        const wrapper = image.closest("p");
+        if (wrapper && wrapper.childElementCount === 1) {
+          wrapper.remove();
+          return;
+        }
+
+        image.remove();
+      });
+    }
+
     function slugifyHeading(text) {
       return text
         .toLowerCase()
@@ -2195,7 +2558,7 @@
         .replace(/^-+|-+$/g, "");
     }
 
-    function assignMarkdownHeadingIds(root) {
+    function assignMarkdownHeadingIds(root, prefix = "") {
       const seen = new Map();
       root.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((heading) => {
         if (heading.id) {
@@ -2207,12 +2570,51 @@
         }
         const duplicateCount = seen.get(baseId) || 0;
         seen.set(baseId, duplicateCount + 1);
-        heading.id = duplicateCount ? `${baseId}-${duplicateCount}` : baseId;
+        const slug = duplicateCount ? `${baseId}-${duplicateCount}` : baseId;
+        heading.id = `${prefix}${slug}`;
+      });
+    }
+
+    function preparePaperListDom(root) {
+      stripEmbeddedFigures(root);
+      assignMarkdownHeadingIds(root, "paper-");
+      wrapMarkdownTables(root);
+
+      root.querySelectorAll("a[href]").forEach((anchor) => {
+        const href = anchor.getAttribute("href");
+        if (!href) {
+          return;
+        }
+
+        if (/^(https?:|mailto:|data:|javascript:)/i.test(href)) {
+          if (/^https?:/i.test(href)) {
+            anchor.target = "_blank";
+            anchor.rel = "noopener";
+          }
+          return;
+        }
+
+        if (href.startsWith("#")) {
+          return;
+        }
+
+        const heading = anchor.closest("h3, h4");
+        if (heading && /\.md($|#)/i.test(href) && heading.id) {
+          anchor.href = `#${heading.id}`;
+          return;
+        }
+
+        if (/\.pdf($|#)/i.test(href) || /\.md($|#)/i.test(href)) {
+          anchor.target = "_blank";
+          anchor.rel = "noopener";
+        }
       });
     }
 
     function rewriteMarkdownDom(root, basePath) {
+      stripEmbeddedFigures(root);
       assignMarkdownHeadingIds(root);
+      wrapMarkdownTables(root);
 
       root.querySelectorAll("a[href]").forEach((anchor) => {
         const href = anchor.getAttribute("href");
@@ -2236,10 +2638,12 @@
         const [pathPart, hash = ""] = resolved.split("#");
 
         if (pathPart.endsWith(".md")) {
-          anchor.href = "#paper-list";
+          anchor.href = "#paper-list-directory";
           anchor.dataset.md = pathPart;
           if (hash) {
             anchor.dataset.anchor = hash;
+          } else {
+            delete anchor.dataset.anchor;
           }
           return;
         }
@@ -2251,73 +2655,71 @@
         }
       });
 
-      root.querySelectorAll("img[src]").forEach((image) => {
-        const src = image.getAttribute("src");
-        if (!src || /^(https?:|data:)/i.test(src)) {
-          return;
-        }
-        image.setAttribute("src", resolveRelativePath(basePath, src));
-      });
-
-      wrapMarkdownTables(root);
     }
 
-    function updateActiveLibraryTab(path, mode, anchor = "") {
+    function updateActiveLibraryTab(path, mode = "", anchor = "") {
       libraryTabs.forEach((tab) => {
         const tabMode = tab.dataset.mode || "";
         const tabAnchor = tab.dataset.anchor || "";
-        tab.classList.toggle("is-active", tab.dataset.md === path && tabMode === mode && tabAnchor === anchor);
+        const isActive = tab.dataset.md === path && tabMode === mode && tabAnchor === anchor;
+        tab.classList.toggle("is-active", isActive);
       });
     }
 
-    async function loadMarkdown(path, mode = "", anchor = "", label = "") {
-      if (!mdRender || !libraryStatus) {
+    function loadLibraryView(path, options = {}) {
+      if (!mdRender) {
         return;
       }
 
-      const fallbackLabel = mode === "paperlist" ? "Full Paper List" : path.replace(/^library\//, "");
-      const viewLabel = label || fallbackLabel;
+      const mode = options.mode || "";
+      const anchor = options.anchor || "";
+      const label = options.label || path.replace(/^library\//, "");
       const htmlKey = mode === "paperlist" ? `${path}::paperlist` : path;
+      const html = libraryHtml[htmlKey] || libraryHtml[path];
 
+      if (!html) {
+        mdRender.innerHTML = fallbackPaperListHtml;
+        preparePaperListDom(mdRender);
+        updateActiveLibraryTab("library/README.md", "paperlist", "");
+        if (libraryStatus) {
+          libraryStatus.textContent = `Showing fallback Full Paper List because ${label} is unavailable.`;
+        }
+        return;
+      }
+
+      mdRender.innerHTML = html;
+      rewriteMarkdownDom(mdRender, path);
       updateActiveLibraryTab(path, mode, anchor);
-      libraryStatus.textContent = `Loading ${viewLabel} ...`;
 
-      try {
-        const html = libraryHtml[htmlKey] || libraryHtml[path];
-        if (!html) {
-          throw new Error(`Missing embedded view: ${htmlKey}`);
-        }
+      if (libraryStatus) {
+        libraryStatus.textContent = `Showing ${label}.`;
+      }
 
-        mdRender.innerHTML = html;
-        rewriteMarkdownDom(mdRender, path);
-
-        libraryStatus.textContent = `Showing ${viewLabel}.`;
-
-        if (anchor) {
-          requestAnimationFrame(() => {
-            const target = document.getElementById(anchor);
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
-        }
-      } catch (error) {
-        console.error("Library view error:", error);
-        if (fallbackPaperListHtml) {
-          mdRender.innerHTML = fallbackPaperListHtml;
-          libraryStatus.textContent = `Showing fallback Full Paper List because ${viewLabel} could not be loaded.`;
-        } else {
-          mdRender.innerHTML = "<p>The paper list is temporarily unavailable in this view.</p>";
-          libraryStatus.textContent = `Failed to load ${viewLabel}.`;
-        }
+      if (anchor) {
+        requestAnimationFrame(() => {
+          const target = mdRender.querySelector(`[id="${anchor}"]`);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
       }
     }
 
-    libraryTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        loadMarkdown(tab.dataset.md, tab.dataset.mode || "", tab.dataset.anchor || "", tab.textContent.trim());
+    if (mdRender) {
+      preparePaperListDom(mdRender);
+    }
+
+    if (libraryTabs.length) {
+      libraryTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          loadLibraryView(tab.dataset.md, {
+            mode: tab.dataset.mode || "",
+            anchor: tab.dataset.anchor || "",
+            label: tab.textContent.trim()
+          });
+        });
       });
-    });
+    }
 
     if (mdRender) {
       mdRender.addEventListener("click", (event) => {
@@ -2326,11 +2728,50 @@
           return;
         }
         event.preventDefault();
-        loadMarkdown(internalLink.dataset.md, "", internalLink.dataset.anchor || "", internalLink.textContent.trim());
+        loadLibraryView(internalLink.dataset.md, {
+          anchor: internalLink.dataset.anchor || "",
+          label: internalLink.textContent.trim()
+        });
       });
     }
 
-    loadMarkdown("library/README.md", "paperlist", "", "Full Paper List");
+    if (Object.keys(libraryHtml).length) {
+      loadLibraryView("library/paradigms/README.md", { label: "Paradigms Overview" });
+    } else if (libraryStatus) {
+      libraryStatus.textContent = "Showing fallback Full Paper List.";
+    }
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealables.forEach((el) => revealObserver.observe(el));
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+          });
+        });
+      }, {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0
+      });
+
+      sections.forEach((section) => navObserver.observe(section));
+    } else {
+      revealables.forEach((el) => el.classList.add("is-visible"));
+    }
   </script>
 </body>
 </html>
