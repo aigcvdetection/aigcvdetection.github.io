@@ -73,10 +73,12 @@ Expression, gaze, identity, and interaction realism over time.
 <details>
 <summary>Additional cited works discussed in this layer</summary>
 
-- [Deepfake Detection Using Deep Convolutional Neural Network and Long Short-Term Memory](https://doi.org/10.1007/s11042-026-21375-7) (Bahadure et al. · Multimedia Tools and Applications)
-- [Deepfake Detection Using Spatiotemporal Methods and Vision-Language Models](https://doi.org/10.1145/3726302.3730234) (Tong et al. · KDD-UMC’25)
-- [Video anomaly detection via self-supervised and spatio-temporal proxy tasks learning](https://doi.org/10.1016/j.patcog.2024.111021) (Yang et al. · Pattern Recognition)
-- [Self-supervised video forensics by audio-visual anomaly detection](https://doi.org/10.1109/cvpr52729.2023.01011) (Feng et al. · CVPR)
-- [One detector to rule them all: Towards a general deepfake attack detection framework](https://arxiv.org/abs/2105.00187) (Tariq et al. · WWW)
+<ul>
+  <li><a href="https://doi.org/10.1007/s11042-026-21375-7">Deepfake Detection Using Deep Convolutional Neural Network and Long Short-Term Memory</a> (Bahadure et al. · Multimedia Tools and Applications)</li>
+  <li><a href="https://doi.org/10.1145/3726302.3730234">Deepfake Detection Using Spatiotemporal Methods and Vision-Language Models</a> (Tong et al. · KDD-UMC’25)</li>
+  <li><a href="https://doi.org/10.1016/j.patcog.2024.111021">Video anomaly detection via self-supervised and spatio-temporal proxy tasks learning</a> (Yang et al. · Pattern Recognition)</li>
+  <li><a href="https://doi.org/10.1109/cvpr52729.2023.01011">Self-supervised video forensics by audio-visual anomaly detection</a> (Feng et al. · CVPR)</li>
+  <li><a href="https://arxiv.org/abs/2105.00187">One detector to rule them all: Towards a general deepfake attack detection framework</a> (Tariq et al. · WWW)</li>
+</ul>
 
 </details>

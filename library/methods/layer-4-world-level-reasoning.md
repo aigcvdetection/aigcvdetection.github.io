@@ -53,6 +53,8 @@ Post-training for explainable reasoning, preference alignment, and reward modeli
 <details>
 <summary>Additional cited works discussed in this layer</summary>
 
-- [Do generative video models understand physical principles?](https://arxiv.org/abs/2501.09038) (Motamed et al. · arXiv)
+<ul>
+  <li><a href="https://arxiv.org/abs/2501.09038">Do generative video models understand physical principles?</a> (Motamed et al. · arXiv)</li>
+</ul>
 
 </details>

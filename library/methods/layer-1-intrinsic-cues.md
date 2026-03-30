@@ -62,7 +62,9 @@ Transfer-oriented modeling, adaptation, and robustness under shift.
 <details>
 <summary>Additional cited works discussed in this layer</summary>
 
-- [On Using rPPG Signals for DeepFake Detection: A Cautionary Note](https://doi.org/10.1007/978-3-031-43153-1_20) (D'Amelio et al. · ICIAP)
-- [ID-Reveal: Identity-aware DeepFake Video Detection](https://doi.org/10.1109/ICCV48922.2021.01483) (Cozzolino et al. · ICCV)
+<ul>
+  <li><a href="https://doi.org/10.1007/978-3-031-43153-1_20">On Using rPPG Signals for DeepFake Detection: A Cautionary Note</a> (D'Amelio et al. · ICIAP)</li>
+  <li><a href="https://doi.org/10.1109/ICCV48922.2021.01483">ID-Reveal: Identity-aware DeepFake Video Detection</a> (Cozzolino et al. · ICCV)</li>
+</ul>
 
 </details>

@@ -2421,7 +2421,7 @@
                     </div>
                     <div class="library-tabs" role="tablist" aria-label="Paper library overview views">
                       <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md" data-mode="paperlist">Full Paper List</button>
-                      <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md">Repository Overview</button>
+                      <button class="library-tab" type="button" data-kind="overview" data-md="library/README.md">Library Overview</button>
                     </div>
                   </div>
 
@@ -2864,6 +2864,12 @@
       }
 
       const [pathPart, hash = ""] = targetPath.split("#");
+      const normalizedPathPart = pathPart.replace(/^\.\//, "");
+
+      if (/^(?:library|assets)\//.test(normalizedPathPart)) {
+        return hash ? `${normalizedPathPart}#${hash}` : normalizedPathPart;
+      }
+
       const baseSegments = basePath.split("/");
       baseSegments.pop();
 
@@ -2880,6 +2886,74 @@
 
       const resolved = baseSegments.join("/");
       return hash ? `${resolved}#${hash}` : resolved;
+    }
+
+    function appendInlineMarkdown(target, text) {
+      const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+      let cursor = 0;
+      let match;
+
+      while ((match = linkPattern.exec(text)) !== null) {
+        if (match.index > cursor) {
+          target.appendChild(document.createTextNode(text.slice(cursor, match.index)));
+        }
+
+        const anchor = document.createElement("a");
+        anchor.href = match[2];
+        anchor.textContent = match[1];
+        target.appendChild(anchor);
+        cursor = match.index + match[0].length;
+      }
+
+      if (cursor < text.length) {
+        target.appendChild(document.createTextNode(text.slice(cursor)));
+      }
+    }
+
+    function renderMarkdownDetails(root) {
+      root.querySelectorAll("details").forEach((details) => {
+        const summary = details.querySelector("summary");
+        if (!summary) {
+          return;
+        }
+
+        const contentNodes = Array.from(details.childNodes).filter((node) => node !== summary);
+        if (!contentNodes.length) {
+          return;
+        }
+
+        const rawText = contentNodes.map((node) => node.textContent || "").join("\n").trim();
+        if (!rawText || !/(^|\n)\s*-\s+/.test(rawText)) {
+          return;
+        }
+
+        contentNodes.forEach((node) => node.remove());
+
+        let list = null;
+        rawText.split(/\r?\n/).forEach((line) => {
+          const trimmed = line.trim();
+          if (!trimmed) {
+            return;
+          }
+
+          const bulletMatch = trimmed.match(/^-\s+(.*)$/);
+          if (bulletMatch) {
+            if (!list) {
+              list = document.createElement("ul");
+              details.appendChild(list);
+            }
+            const item = document.createElement("li");
+            appendInlineMarkdown(item, bulletMatch[1]);
+            list.appendChild(item);
+            return;
+          }
+
+          list = null;
+          const paragraph = document.createElement("p");
+          appendInlineMarkdown(paragraph, trimmed);
+          details.appendChild(paragraph);
+        });
+      });
     }
 
     function wrapMarkdownTables(root) {
@@ -2945,6 +3019,7 @@
 
     function preparePaperListDom(root) {
       stripEmbeddedFigures(root);
+      renderMarkdownDetails(root);
       assignMarkdownHeadingIds(root, "paper-");
       wrapMarkdownTables(root);
 
@@ -2981,6 +3056,7 @@
 
     function rewriteMarkdownDom(root, basePath) {
       stripEmbeddedFigures(root);
+      renderMarkdownDetails(root);
       assignMarkdownHeadingIds(root);
       wrapMarkdownTables(root);
 
@@ -3104,7 +3180,7 @@
     }
 
     if (Object.keys(libraryHtml).length) {
-      loadLibraryView("library/methods/README.md", { label: "Paradigms Overview" });
+      loadLibraryView("library/methods/README.md", { label: "Methods Overview" });
     } else if (libraryStatus) {
       libraryStatus.textContent = "Showing fallback Full Paper List.";
     }

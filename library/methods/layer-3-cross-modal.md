@@ -67,6 +67,8 @@ Localization-oriented multimodal learning under sparse inconsistency.
 <details>
 <summary>Additional cited works discussed in this layer</summary>
 
-- [Leveraging Large Multimodal Models for Audio-Video Deepfake Detection: A Pilot Study](https://doi.org/10.48550/ARXIV.2602.23393) (Cao et al. · ICASSP)
+<ul>
+  <li><a href="https://doi.org/10.48550/ARXIV.2602.23393">Leveraging Large Multimodal Models for Audio-Video Deepfake Detection: A Pilot Study</a> (Cao et al. · ICASSP)</li>
+</ul>
 
 </details>
